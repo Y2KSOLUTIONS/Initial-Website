@@ -55,9 +55,13 @@ export default function HomePage() {
             <span className="text-[#1A1205]">Built for Business</span>
           </h1>
 
-          <p className="text-xl text-[#3D2E0E] max-w-2xl mx-auto mb-10 leading-relaxed">
+          <p className="text-xl text-[#3D2E0E] max-w-2xl mx-auto mb-4 leading-relaxed">
             The internet outlived Y2K. Your website should outlive your competition.{" "}
             <span className="text-[#1A1205] font-semibold">We&apos;ll make that happen.</span>
+          </p>
+
+          <p className="text-base font-semibold tracking-wide text-royal-blue uppercase mb-10">
+            Building Your Online Presence. Driving Your Business Growth.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
