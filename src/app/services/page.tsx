@@ -57,16 +57,15 @@ export default function ServicesPage() {
     <>
       {/* Header */}
       <section className="relative py-24 px-6 text-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0A0F1E] via-[#0d1a3a] to-[#0A0F1E] -z-10" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-teal/10 rounded-full blur-3xl -z-10" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#F5EDD6] via-[#EDE0C4] to-[#F5EDD6] -z-10" />
         <div className="max-w-3xl mx-auto">
-          <p className="text-teal-light text-sm font-semibold uppercase tracking-widest mb-4">
+          <p className="text-teal text-sm font-semibold uppercase tracking-widest mb-4">
             What We Offer
           </p>
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+          <h1 className="text-5xl md:text-6xl font-bold text-[#1A1205] mb-6">
             Our <span className="gradient-text">Services</span>
           </h1>
-          <p className="text-gray-300 text-lg leading-relaxed">
+          <p className="text-[#3D2E0E] text-lg leading-relaxed">
             Everything your business needs to win online — designed, built, and supported by a team
             that actually cares about your results.
           </p>
@@ -79,14 +78,14 @@ export default function ServicesPage() {
           {services.map((s) => (
             <div
               key={s.title}
-              className="bg-[#111827] border border-white/10 rounded-2xl p-8 card-glow transition-all duration-300 hover:-translate-y-1"
+              className="bg-[#EDE0C4] border border-[#C8B89A] rounded-2xl p-8 card-glow transition-all duration-300 hover:-translate-y-1"
             >
               <div className="text-4xl mb-5">{s.icon}</div>
-              <h2 className="text-xl font-bold text-white mb-3">{s.title}</h2>
-              <p className="text-gray-400 text-sm leading-relaxed mb-6">{s.description}</p>
+              <h2 className="text-xl font-bold text-[#1A1205] mb-3">{s.title}</h2>
+              <p className="text-[#6B5A3A] text-sm leading-relaxed mb-6">{s.description}</p>
               <ul className="space-y-2">
                 {s.features.map((f) => (
-                  <li key={f} className="flex items-center gap-2 text-sm text-gray-300">
+                  <li key={f} className="flex items-center gap-2 text-sm text-[#3D2E0E]">
                     <span className="w-1.5 h-1.5 rounded-full bg-teal flex-shrink-0" />
                     {f}
                   </li>
@@ -98,12 +97,12 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 px-6 bg-[#111827] text-center">
+      <section className="py-20 px-6 bg-[#EDE0C4] border-t border-[#C8B89A] text-center">
         <div className="max-w-2xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#1A1205] mb-4">
             Not sure what you need?
           </h2>
-          <p className="text-gray-300 mb-8">
+          <p className="text-[#3D2E0E] mb-8">
             Let&apos;s talk. We&apos;ll figure out the best approach for your business together — no
             commitment required.
           </p>
