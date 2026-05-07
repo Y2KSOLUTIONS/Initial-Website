@@ -16,15 +16,15 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 bg-[#F5EDD6]/95 backdrop-blur-md border-b border-[#C8B89A]">
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
+    <nav className="sticky top-0 z-50 bg-[#0A0F1E] border-b border-[#1F2937]">
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-24">
         <Link href="/" className="flex items-center">
           <Image
             src="/logo.png"
             alt="Y2K Solutions LLC"
-            width={140}
-            height={56}
-            className="h-12 w-auto object-contain"
+            width={220}
+            height={88}
+            className="h-20 w-auto object-contain"
             priority
           />
         </Link>
@@ -35,7 +35,7 @@ export default function Navbar() {
             <Link
               key={l.href}
               href={l.href}
-              className="text-sm text-[#3D2E0E] hover:text-royal-blue transition-colors font-medium"
+              className="text-sm text-gray-300 hover:text-white transition-colors font-medium"
             >
               {l.label}
             </Link>
@@ -50,7 +50,7 @@ export default function Navbar() {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden text-[#3D2E0E] hover:text-royal-blue p-2"
+          className="md:hidden text-gray-300 hover:text-white p-2"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -70,12 +70,12 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden bg-[#EDE0C4] border-t border-[#C8B89A] px-6 py-4 flex flex-col gap-4">
+        <div className="md:hidden bg-[#111827] border-t border-[#1F2937] px-6 py-4 flex flex-col gap-4">
           {links.map((l) => (
             <Link
               key={l.href}
               href={l.href}
-              className="text-[#3D2E0E] hover:text-royal-blue transition-colors font-medium"
+              className="text-gray-300 hover:text-white transition-colors font-medium"
               onClick={() => setOpen(false)}
             >
               {l.label}
