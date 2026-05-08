@@ -1,4 +1,6 @@
 import Link from "next/link";
+import ParticleCanvas from "@/components/ParticleCanvas";
+import HeroHeadline from "@/components/HeroHeadline";
 
 const services = [
   {
@@ -40,11 +42,12 @@ export default function HomePage() {
       {/* ── Hero ── */}
       <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-dark">
         <div className="absolute inset-0 dot-grid opacity-50" />
+        <ParticleCanvas />
         {/* Y2K watermark */}
         <span
           aria-hidden
           className="absolute right-0 top-1/2 -translate-y-1/2 text-[22vw] font-bold leading-none select-none pointer-events-none font-display"
-          style={{ color: "rgba(0,229,160,0.025)" }}
+          style={{ color: "rgba(0,229,160,0.025)", zIndex: 2 }}
         >
           Y2K
         </span>
@@ -56,20 +59,7 @@ export default function HomePage() {
               Y2K Solutions LLC — Web Design Nationwide
             </p>
 
-            <h1 className="font-bold leading-[1.05] tracking-tight mb-8">
-              <span className="anim anim-2 block text-4xl md:text-6xl lg:text-7xl text-light-2">
-                The internet
-              </span>
-              <span className="anim anim-3 block text-4xl md:text-6xl lg:text-7xl text-light">
-                outlived Y2K.
-              </span>
-              <span className="anim anim-4 block text-4xl md:text-6xl lg:text-7xl text-light-2 mt-1">
-                Your website should
-              </span>
-              <span className="anim anim-5 block text-4xl md:text-6xl lg:text-7xl text-neon">
-                outlive the competition.
-              </span>
-            </h1>
+            <HeroHeadline />
 
             <p className="anim anim-6 text-light-2 text-lg max-w-xl mb-10 leading-relaxed">
               We build fast, modern websites for small businesses across America. No jargon.

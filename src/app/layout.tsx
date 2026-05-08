@@ -3,6 +3,7 @@ import { Space_Grotesk, Space_Mono, DM_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import CursorGlow from "@/components/CursorGlow";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -38,6 +39,7 @@ export default function RootLayout({
       className={`${spaceGrotesk.variable} ${spaceMono.variable} ${dmSans.variable} h-full`}
     >
       <body className="min-h-full flex flex-col antialiased">
+        <CursorGlow />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
