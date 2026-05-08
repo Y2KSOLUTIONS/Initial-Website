@@ -21,12 +21,12 @@ const values = [
   {
     title: "Your Partner, Not a Vendor",
     description:
-      "We're not just checking boxes. We take the time to understand your business and build something that actually helps it grow.",
+      "We take the time to understand your business and build something that actually helps it grow.",
   },
   {
     title: "Built to Last",
     description:
-      "We use modern, proven technology so your site doesn't need a full rebuild in 2 years. Sustainable from day one.",
+      "Modern, proven technology so your site doesn't need a full rebuild in 2 years. Sustainable from day one.",
   },
 ];
 
@@ -34,80 +34,91 @@ export default function AboutPage() {
   return (
     <>
       {/* Header */}
-      <section className="relative py-24 px-6 text-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#F5EDD6] via-[#EDE0C4] to-[#F5EDD6] -z-10" />
-        <div className="max-w-3xl mx-auto">
-          <p className="text-teal text-sm font-semibold uppercase tracking-widest mb-4">
-            Who We Are
-          </p>
-          <h1 className="text-5xl md:text-6xl font-bold text-[#1A1205] mb-6">
+      <section className="relative py-28 px-6 overflow-hidden bg-dark">
+        <div className="absolute inset-0 dot-grid opacity-40" />
+        <div className="relative max-w-3xl mx-auto text-center">
+          <p className="label mb-6 block">Who We Are</p>
+          <h1 className="text-5xl md:text-6xl font-bold text-light mb-6">
             About <span className="gradient-text">Y2K Solutions</span>
           </h1>
-          <p className="text-[#3D2E0E] text-lg leading-relaxed">
-            A web design company built specifically for the businesses that keep America running —
-            the small shops, service providers, and entrepreneurs who deserve an online presence
-            that works as hard as they do.
+          <p className="text-light-2 text-lg leading-relaxed">
+            A web design company built for the businesses that keep America running — the small
+            shops, service providers, and entrepreneurs who deserve an online presence that works
+            as hard as they do.
           </p>
         </div>
       </section>
 
       {/* Our Story */}
-      <section className="py-20 px-6">
-        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-14 items-center">
+      <section className="py-24 px-6">
+        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-14 items-center">
           <div>
-            <p className="text-teal text-sm font-semibold uppercase tracking-widest mb-4">
-              Our Story
-            </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#1A1205] mb-6">
+            <p className="label mb-4 block">Our Story</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-light mb-6">
               The name says it all
             </h2>
-            <p className="text-[#3D2E0E] leading-relaxed mb-4">
+            <p className="text-light-2 leading-relaxed mb-4">
               In 1999, the world panicked. Everyone thought the turn of the millennium would bring
-              technological catastrophe — systems would fail, data would disappear, and the internet
-              would crash. But on January 1st, 2000, nothing happened. The internet didn&apos;t just
-              survive Y2K — it thrived.
+              technological catastrophe — systems would fail, data would disappear, the internet
+              would crash. But on January 1st, 2000, nothing happened. The internet didn&apos;t
+              just survive Y2K — it thrived.
             </p>
-            <p className="text-[#3D2E0E] leading-relaxed mb-4">
-              That&apos;s the spirit behind our name. While others worry, we build things that hold up.
-              While the noise gets louder, we focus on what matters: a website that works, ranks,
-              and brings in business.
+            <p className="text-light-2 leading-relaxed mb-4">
+              That&apos;s the spirit behind our name. While others worry, we build things that hold
+              up. While the noise gets louder, we focus on what matters: a website that works,
+              ranks, and brings in business.
             </p>
-            <p className="text-[#3D2E0E] leading-relaxed">
-              We work exclusively with small and medium-sized businesses across the country — the
-              kind of businesses where a strong web presence can make a real difference.
+            <p className="text-light-2 leading-relaxed">
+              We work with small and medium-sized businesses across the country — the kind of
+              business where a strong web presence can make a real difference.
             </p>
           </div>
 
-          <div className="bg-[#EDE0C4] border border-[#C8B89A] rounded-2xl p-8">
-            <div className="text-6xl mb-6 text-center">⚡</div>
-            <blockquote className="text-[#1A1205] text-lg leading-relaxed text-center italic">
+          <div className="bg-dark-2 border border-line rounded-xl p-8">
+            <div className="font-mono text-xs text-light-2 mb-6 space-y-1.5">
+              <p>
+                <span className="text-neon">›</span> year: 1999
+              </p>
+              <p>
+                <span className="text-neon">›</span> threat: Y2K bug
+              </p>
+              <p>
+                <span className="text-neon">›</span> prediction: digital collapse
+              </p>
+              <p className="text-yellow-400/80">⚠ world.exe panicking...</p>
+              <div className="h-px bg-line my-3" />
+              <p>
+                <span className="text-neon">›</span> year: 2000
+              </p>
+              <p>
+                <span className="text-neon">›</span> result: internet survived
+              </p>
+              <p className="text-neon">✓ internet.exe thriving</p>
+            </div>
+            <blockquote className="text-light text-base leading-relaxed italic border-l-2 border-neon pl-4">
               &ldquo;The internet outlived Y2K. Your website should outlive your competition.
               We&apos;ll make that happen.&rdquo;
             </blockquote>
-            <p className="text-center text-teal text-sm mt-4">— Y2K Solutions LLC</p>
+            <p className="text-neon text-sm mt-4 font-mono">— Y2K Solutions LLC_</p>
           </div>
         </div>
       </section>
 
       {/* Values */}
-      <section className="py-20 px-6 bg-[#EDE0C4] border-y border-[#C8B89A]">
+      <section className="py-24 px-6 bg-dark-2 border-y border-line">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-14">
-            <p className="text-teal text-sm font-semibold uppercase tracking-widest mb-4">
-              How We Work
-            </p>
-            <h2 className="text-4xl font-bold text-[#1A1205]">
-              What we believe in
-            </h2>
+          <div className="mb-14">
+            <p className="label mb-4 block">How We Work</p>
+            <h2 className="text-4xl font-bold text-light">What we believe in</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {values.map((v) => (
               <div
                 key={v.title}
-                className="bg-[#F5EDD6] border border-[#C8B89A] rounded-2xl p-7 card-glow transition-all duration-300"
+                className="bg-dark border border-line rounded-xl p-7 card-accent"
               >
-                <h3 className="text-[#1A1205] font-bold text-lg mb-2">{v.title}</h3>
-                <p className="text-[#6B5A3A] text-sm leading-relaxed">{v.description}</p>
+                <h3 className="text-light font-bold text-lg mb-2">{v.title}</h3>
+                <p className="text-light-2 text-sm leading-relaxed">{v.description}</p>
               </div>
             ))}
           </div>
@@ -115,17 +126,18 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 px-6 text-center">
+      <section className="py-24 px-6 text-center">
         <div className="max-w-2xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#1A1205] mb-4">
+          <p className="label mb-6 block">Let&apos;s Connect</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-light mb-4">
             Let&apos;s build something together
           </h2>
-          <p className="text-[#3D2E0E] mb-8">
+          <p className="text-light-2 mb-8">
             We&apos;d love to learn about your business and show you what&apos;s possible.
           </p>
           <Link
             href="/contact"
-            className="gradient-bg text-white font-semibold px-8 py-4 rounded-full hover:opacity-90 transition-opacity"
+            className="inline-block bg-neon text-dark font-bold px-8 py-4 rounded-full hover:shadow-[0_0_28px_rgba(0,229,160,0.45)] hover:-translate-y-0.5 transition-all duration-200"
           >
             Get in Touch
           </Link>

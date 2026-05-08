@@ -19,16 +19,14 @@ export default function ContactPage() {
   return (
     <>
       {/* Header */}
-      <section className="relative py-24 px-6 text-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#F5EDD6] via-[#EDE0C4] to-[#F5EDD6] -z-10" />
-        <div className="max-w-3xl mx-auto">
-          <p className="text-teal text-sm font-semibold uppercase tracking-widest mb-4">
-            Let&apos;s Talk
-          </p>
-          <h1 className="text-5xl md:text-6xl font-bold text-[#1A1205] mb-6">
+      <section className="relative py-28 px-6 overflow-hidden bg-dark">
+        <div className="absolute inset-0 dot-grid opacity-40" />
+        <div className="relative max-w-3xl mx-auto text-center">
+          <p className="label mb-6 block">Let&apos;s Talk</p>
+          <h1 className="text-5xl md:text-6xl font-bold text-light mb-6">
             Get a <span className="gradient-text">Free Quote</span>
           </h1>
-          <p className="text-[#3D2E0E] text-lg leading-relaxed">
+          <p className="text-light-2 text-lg leading-relaxed">
             No pressure, no jargon. Just a straight conversation about what your business needs
             online and how we can help.
           </p>
@@ -38,57 +36,55 @@ export default function ContactPage() {
       {/* Form + Info */}
       <section className="py-20 px-6">
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-14 items-start">
-          {/* Contact Info */}
+          {/* Process steps */}
           <div>
-            <h2 className="text-2xl font-bold text-[#1A1205] mb-6">What to expect</h2>
-            <div className="space-y-6">
+            <h2 className="text-2xl font-bold text-light mb-8">What to expect</h2>
+            <div className="space-y-7">
               {[
                 {
-                  step: "1",
+                  step: "01",
                   title: "Tell us about your business",
                   desc: "Fill out the form and we'll learn the basics about what you need.",
                 },
                 {
-                  step: "2",
+                  step: "02",
                   title: "We reach out within 24 hours",
                   desc: "A real person will get back to you quickly — no automated runaround.",
                 },
                 {
-                  step: "3",
+                  step: "03",
                   title: "Get a clear, honest quote",
                   desc: "No hidden fees, no upsells you don't need. Just a fair price for great work.",
                 },
               ].map((item) => (
-                <div key={item.step} className="flex gap-4">
-                  <div className="gradient-bg w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0 mt-0.5">
+                <div key={item.step} className="flex gap-5">
+                  <div className="font-mono text-2xl font-bold text-light-3 leading-none w-10 flex-shrink-0">
                     {item.step}
                   </div>
                   <div>
-                    <h3 className="text-[#1A1205] font-semibold">{item.title}</h3>
-                    <p className="text-[#6B5A3A] text-sm mt-1">{item.desc}</p>
+                    <h3 className="text-light font-semibold mb-1">{item.title}</h3>
+                    <p className="text-light-2 text-sm">{item.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
 
-            <div className="mt-10 p-6 bg-[#EDE0C4] border border-[#C8B89A] rounded-2xl">
-              <p className="text-teal text-sm font-semibold uppercase tracking-widest mb-3">
-                Nationwide Service
-              </p>
-              <p className="text-[#3D2E0E] text-sm leading-relaxed">
-                We work with businesses all across the United States. Fully remote, so wherever you
+            <div className="mt-10 p-6 bg-dark-2 border border-line rounded-xl">
+              <p className="label mb-3 block">Nationwide Service</p>
+              <p className="text-light-2 text-sm leading-relaxed">
+                We work with businesses all across the United States. Fully remote — wherever you
                 are, we can help.
               </p>
             </div>
           </div>
 
           {/* Form */}
-          <div className="bg-[#EDE0C4] border border-[#C8B89A] rounded-2xl p-8">
+          <div className="bg-dark-2 border border-line rounded-xl p-8">
             {submitted ? (
-              <div className="text-center py-10">
-                <div className="text-6xl mb-4">✅</div>
-                <h3 className="text-[#1A1205] text-2xl font-bold mb-2">Message received!</h3>
-                <p className="text-[#6B5A3A]">
+              <div className="text-center py-12">
+                <div className="font-mono text-neon text-5xl mb-4">✓</div>
+                <h3 className="text-light text-2xl font-bold mb-2">Message received!</h3>
+                <p className="text-light-2">
                   We&apos;ll be in touch within 24 hours. Thanks for reaching out!
                 </p>
               </div>
@@ -96,7 +92,10 @@ export default function ContactPage() {
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm text-[#3D2E0E] font-medium mb-1.5" htmlFor="first-name">
+                    <label
+                      className="block text-xs text-light-2 font-mono uppercase tracking-wider mb-2"
+                      htmlFor="first-name"
+                    >
                       First Name *
                     </label>
                     <input
@@ -104,12 +103,15 @@ export default function ContactPage() {
                       name="firstName"
                       type="text"
                       required
-                      className="w-full bg-[#F5EDD6] border border-[#C8B89A] rounded-lg px-4 py-2.5 text-[#1A1205] text-sm placeholder-[#8B7355] focus:outline-none focus:border-royal-blue transition-colors"
+                      className="input-dark"
                       placeholder="Jane"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm text-[#3D2E0E] font-medium mb-1.5" htmlFor="last-name">
+                    <label
+                      className="block text-xs text-light-2 font-mono uppercase tracking-wider mb-2"
+                      htmlFor="last-name"
+                    >
                       Last Name *
                     </label>
                     <input
@@ -117,14 +119,17 @@ export default function ContactPage() {
                       name="lastName"
                       type="text"
                       required
-                      className="w-full bg-[#F5EDD6] border border-[#C8B89A] rounded-lg px-4 py-2.5 text-[#1A1205] text-sm placeholder-[#8B7355] focus:outline-none focus:border-royal-blue transition-colors"
+                      className="input-dark"
                       placeholder="Smith"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm text-[#3D2E0E] font-medium mb-1.5" htmlFor="email">
+                  <label
+                    className="block text-xs text-light-2 font-mono uppercase tracking-wider mb-2"
+                    htmlFor="email"
+                  >
                     Email Address *
                   </label>
                   <input
@@ -132,33 +137,35 @@ export default function ContactPage() {
                     name="email"
                     type="email"
                     required
-                    className="w-full bg-[#F5EDD6] border border-[#C8B89A] rounded-lg px-4 py-2.5 text-[#1A1205] text-sm placeholder-[#8B7355] focus:outline-none focus:border-royal-blue transition-colors"
+                    className="input-dark"
                     placeholder="jane@yourbusiness.com"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm text-[#3D2E0E] font-medium mb-1.5" htmlFor="business">
+                  <label
+                    className="block text-xs text-light-2 font-mono uppercase tracking-wider mb-2"
+                    htmlFor="business"
+                  >
                     Business Name
                   </label>
                   <input
                     id="business"
                     name="business"
                     type="text"
-                    className="w-full bg-[#F5EDD6] border border-[#C8B89A] rounded-lg px-4 py-2.5 text-[#1A1205] text-sm placeholder-[#8B7355] focus:outline-none focus:border-royal-blue transition-colors"
+                    className="input-dark"
                     placeholder="Smith Plumbing LLC"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm text-[#3D2E0E] font-medium mb-1.5" htmlFor="service">
+                  <label
+                    className="block text-xs text-light-2 font-mono uppercase tracking-wider mb-2"
+                    htmlFor="service"
+                  >
                     What do you need?
                   </label>
-                  <select
-                    id="service"
-                    name="service"
-                    className="w-full bg-[#F5EDD6] border border-[#C8B89A] rounded-lg px-4 py-2.5 text-[#1A1205] text-sm focus:outline-none focus:border-royal-blue transition-colors"
-                  >
+                  <select id="service" name="service" className="input-dark">
                     <option value="">Select a service...</option>
                     <option value="new-website">New Website</option>
                     <option value="redesign">Website Redesign</option>
@@ -171,27 +178,30 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm text-[#3D2E0E] font-medium mb-1.5" htmlFor="message">
+                  <label
+                    className="block text-xs text-light-2 font-mono uppercase tracking-wider mb-2"
+                    htmlFor="message"
+                  >
                     Tell us about your project
                   </label>
                   <textarea
                     id="message"
                     name="message"
                     rows={4}
-                    className="w-full bg-[#F5EDD6] border border-[#C8B89A] rounded-lg px-4 py-2.5 text-[#1A1205] text-sm placeholder-[#8B7355] focus:outline-none focus:border-royal-blue transition-colors resize-none"
-                    placeholder="Tell us what you're looking for, your timeline, or any questions you have..."
+                    className="input-dark resize-none"
+                    placeholder="Tell us what you're looking for, your timeline, or any questions..."
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full gradient-bg text-white font-semibold py-3 rounded-full hover:opacity-90 transition-opacity disabled:opacity-60"
+                  className="w-full bg-neon text-dark font-bold py-3 rounded-full hover:shadow-[0_0_24px_rgba(0,229,160,0.4)] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {loading ? "Sending..." : "Send My Message →"}
                 </button>
 
-                <p className="text-xs text-[#8B7355] text-center">
+                <p className="text-xs text-light-3 text-center font-mono">
                   We typically respond within 24 hours. No spam, ever.
                 </p>
               </form>

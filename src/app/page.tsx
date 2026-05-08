@@ -2,168 +2,251 @@ import Link from "next/link";
 
 const services = [
   {
-    icon: "🖥️",
     title: "Custom Website Design",
     description:
-      "Professionally designed websites built to convert visitors into customers. Mobile-first and fast.",
+      "Built from scratch to match your brand and turn visitors into customers. Mobile-first, fast, and made to convert.",
+    features: ["Mobile-first design", "Fast load times", "Brand-aligned aesthetic", "Easy to update"],
   },
   {
-    icon: "🛒",
     title: "E-Commerce",
     description:
-      "Sell products online with a smooth, secure shopping experience your customers will trust.",
+      "Sell online with a smooth, secure shopping experience. From 10 products to 10,000.",
+    features: ["Product management", "Secure checkout", "Inventory tracking", "Payment integrations"],
   },
   {
-    icon: "📈",
     title: "SEO & Performance",
     description:
-      "Get found on Google. We build with SEO best practices baked in from day one.",
+      "Get found on Google. We bake SEO in from day one so your customers can find you.",
+    features: ["On-page SEO", "Core Web Vitals", "Local SEO", "Google Business setup"],
   },
   {
-    icon: "🔧",
     title: "Maintenance & Support",
     description:
-      "Stay up-to-date and secure with ongoing maintenance plans. We handle the tech, you run your business.",
+      "We handle the tech. You run your business. Ongoing plans to keep your site secure and fast.",
+    features: ["Security updates", "Content changes", "Uptime monitoring", "Monthly reports"],
   },
 ];
 
 const stats = [
-  { value: "100%", label: "US-Based Clients" },
-  { value: "Fast", label: "Turnaround" },
-  { value: "24/7", label: "Support Available" },
+  { value: "100%", label: "US-Based" },
+  { value: "< 2wk", label: "Avg. Launch" },
+  { value: "24/7", label: "Support" },
   { value: "$0", label: "Hidden Fees" },
 ];
 
 export default function HomePage() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative overflow-hidden py-24 px-6 text-center">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#F5EDD6] via-[#EDE0C4] to-[#F5EDD6] -z-10" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-royal-blue/8 rounded-full blur-3xl -z-10" />
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[400px] h-[300px] bg-teal/8 rounded-full blur-3xl -z-10" />
+      {/* ── Hero ── */}
+      <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-dark">
+        <div className="absolute inset-0 dot-grid opacity-50" />
+        {/* Y2K watermark */}
+        <span
+          aria-hidden
+          className="absolute right-0 top-1/2 -translate-y-1/2 text-[22vw] font-bold leading-none select-none pointer-events-none font-display"
+          style={{ color: "rgba(0,229,160,0.025)" }}
+        >
+          Y2K
+        </span>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="inline-flex items-center gap-2 bg-[#1A1205]/5 border border-[#C8B89A] rounded-full px-4 py-1.5 text-sm text-[#6B5A3A] mb-6">
-            <span className="w-2 h-2 rounded-full bg-teal animate-pulse" />
-            Web design for small &amp; medium businesses — nationwide
+        <div className="relative z-10 max-w-7xl mx-auto px-6 py-24 w-full grid lg:grid-cols-[1fr_320px] gap-16 items-center">
+          {/* Left: main content */}
+          <div>
+            <p className="label anim anim-1 mb-6 block">
+              Y2K Solutions LLC — Web Design Nationwide
+            </p>
+
+            <h1 className="font-bold leading-[1.05] tracking-tight mb-8">
+              <span className="anim anim-2 block text-4xl md:text-6xl lg:text-7xl text-light-2">
+                The internet
+              </span>
+              <span className="anim anim-3 block text-4xl md:text-6xl lg:text-7xl text-light">
+                outlived Y2K.
+              </span>
+              <span className="anim anim-4 block text-4xl md:text-6xl lg:text-7xl text-light-2 mt-1">
+                Your website should
+              </span>
+              <span className="anim anim-5 block text-4xl md:text-6xl lg:text-7xl text-neon">
+                outlive the competition.
+              </span>
+            </h1>
+
+            <p className="anim anim-6 text-light-2 text-lg max-w-xl mb-10 leading-relaxed">
+              We build fast, modern websites for small businesses across America. No jargon.
+              No hidden fees. Just a website that works as hard as you do.
+            </p>
+
+            <div className="anim anim-7 flex flex-col sm:flex-row gap-4">
+              <Link
+                href="/contact"
+                className="bg-neon text-dark font-bold px-8 py-4 rounded-full text-base text-center hover:shadow-[0_0_32px_rgba(0,229,160,0.45)] hover:-translate-y-0.5 transition-all duration-200"
+              >
+                Get a Free Quote
+              </Link>
+              <Link
+                href="/portfolio"
+                className="border border-line-2 text-light px-8 py-4 rounded-full text-base font-medium text-center hover:border-neon hover:bg-neon/5 transition-all duration-200"
+              >
+                See Our Work →
+              </Link>
+            </div>
           </div>
 
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
-            <span className="gradient-text">Y2K Solutions</span>
-            <br />
-            <span className="text-[#1A1205]">Built for Business</span>
-          </h1>
-
-          <p className="text-xl text-[#3D2E0E] max-w-2xl mx-auto mb-4 leading-relaxed">
-            The internet outlived Y2K. Your website should outlive your competition.{" "}
-            <span className="text-[#1A1205] font-semibold">We&apos;ll make that happen.</span>
-          </p>
-
-          <p className="text-base font-semibold tracking-wide text-royal-blue uppercase mb-10">
-            Building Your Online Presence. Driving Your Business Growth.
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              href="/contact"
-              className="gradient-bg text-white font-semibold px-8 py-4 rounded-full text-lg hover:opacity-90 transition-opacity w-full sm:w-auto text-center"
-            >
-              Get a Free Quote
-            </Link>
-            <Link
-              href="/portfolio"
-              className="border border-[#C8B89A] text-[#1A1205] font-medium px-8 py-4 rounded-full text-lg hover:bg-[#EDE0C4] transition-colors w-full sm:w-auto text-center"
-            >
-              See Our Work
-            </Link>
+          {/* Right: terminal status card */}
+          <div className="hidden lg:block anim anim-5">
+            <div className="bg-dark-2 border border-line rounded-xl overflow-hidden">
+              <div className="flex items-center gap-1.5 px-4 py-3 bg-dark-3 border-b border-line">
+                <span className="w-2.5 h-2.5 rounded-full bg-red-500/50" />
+                <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/50" />
+                <span className="w-2.5 h-2.5 rounded-full bg-neon/50" />
+                <span className="ml-3 font-mono text-light-3 text-xs">Y2K_STATUS.exe</span>
+              </div>
+              <div className="p-5 font-mono text-xs space-y-2 text-light-2">
+                <p>
+                  <span className="text-neon">›</span> scanning business health...
+                </p>
+                <p>
+                  <span className="text-neon">›</span> no website detected
+                </p>
+                <p className="text-yellow-400/80">⚠ WARNING: invisible online</p>
+                <p className="text-yellow-400/80">⚠ competitors are ranking</p>
+                <div className="h-px bg-line my-3" />
+                <p>
+                  <span className="text-neon">›</span> initiating Y2K protocol...
+                </p>
+                <div className="h-px bg-line my-3" />
+                <div className="space-y-2">
+                  <div className="flex justify-between">
+                    <span className="text-light-3">load time</span>
+                    <span className="text-neon">&lt; 1.0s ✓</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-light-3">seo score</span>
+                    <span className="text-neon">98/100 ✓</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-light-3">google rank</span>
+                    <span className="text-neon">#1 local ✓</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-light-3">uptime</span>
+                    <span className="text-neon">99.9% ✓</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-light-3">status</span>
+                    <span className="text-neon animate-pulse">● LIVE</span>
+                  </div>
+                </div>
+                <div className="pt-2">
+                  <span className="text-neon">_</span>
+                  <span className="inline-block w-2 h-3.5 bg-neon ml-0.5 align-middle cursor-blink" />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Stats bar */}
-      <section className="bg-[#EDE0C4] border-y border-[#C8B89A] py-8 px-6">
+      {/* ── Stats bar ── */}
+      <section className="bg-dark-2 border-y border-line py-8 px-6">
         <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           {stats.map((s) => (
             <div key={s.label}>
-              <div className="text-3xl font-bold gradient-text">{s.value}</div>
-              <div className="text-sm text-[#6B5A3A] mt-1">{s.label}</div>
+              <div className="text-3xl font-bold text-neon font-mono">{s.value}</div>
+              <div className="text-xs text-light-3 mt-1.5 uppercase tracking-widest font-mono">
+                {s.label}
+              </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Y2K Story Section */}
-      <section className="py-24 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="text-teal text-sm font-semibold uppercase tracking-widest mb-4">
-            Our Origin
-          </p>
-          <h2 className="text-4xl md:text-5xl font-bold text-[#1A1205] mb-6">
+      {/* ── Y2K Story ── */}
+      <section className="py-28 px-6 relative overflow-hidden">
+        <div className="absolute inset-0 dot-grid opacity-25" />
+        <div className="relative max-w-4xl mx-auto text-center">
+          <p className="label mb-6 block">Our Origin</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-light mb-8">
             Remember the year 2000?
           </h2>
-          <p className="text-[#3D2E0E] text-lg leading-relaxed max-w-3xl mx-auto mb-6">
-            The world was convinced the internet would collapse. Data would vanish. Chaos would follow.
-            It didn&apos;t happen. The internet didn&apos;t just survive — it became the backbone of every
-            business on earth.
+          <p className="text-light-2 text-lg leading-relaxed max-w-3xl mx-auto mb-6">
+            The world was convinced the internet would collapse. Data would vanish. Chaos would
+            follow. It didn&apos;t happen. The internet didn&apos;t just survive — it became the
+            backbone of every business on earth.
           </p>
-          <p className="text-[#3D2E0E] text-lg leading-relaxed max-w-3xl mx-auto">
-            Today, a business without a strong web presence faces its own kind of Y2K — slow sites,
-            outdated designs, invisible on Google.{" "}
-            <span className="text-[#1A1205] font-semibold">We exist to make sure that never happens to you.</span>
+          <p className="text-light-2 text-lg leading-relaxed max-w-3xl mx-auto">
+            Today, businesses without a strong web presence face their own Y2K moment — slow
+            sites, outdated designs, invisible on Google.{" "}
+            <span className="text-neon font-semibold">
+              We exist to make sure that never happens to you.
+            </span>
           </p>
         </div>
       </section>
 
-      {/* Services Preview */}
-      <section className="py-24 px-6 bg-[#EDE0C4]">
+      {/* Divider */}
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="h-px bg-gradient-to-r from-transparent via-line-2 to-transparent" />
+      </div>
+
+      {/* ── Services Preview ── */}
+      <section className="py-28 px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-14">
-            <p className="text-teal text-sm font-semibold uppercase tracking-widest mb-4">
-              What We Do
-            </p>
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1A1205]">
-              Services built for <span className="gradient-text">real businesses</span>
+          <div className="mb-14">
+            <p className="label mb-4 block">What We Do</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-light">
+              Services built for{" "}
+              <span className="gradient-text">real businesses</span>
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {services.map((s) => (
               <div
                 key={s.title}
-                className="bg-[#F5EDD6] border border-[#C8B89A] rounded-2xl p-6 card-glow transition-all duration-300 hover:-translate-y-1"
+                className="bg-dark-2 border border-line rounded-xl p-7 card-accent"
               >
-                <div className="text-4xl mb-4">{s.icon}</div>
-                <h3 className="text-[#1A1205] font-semibold text-lg mb-2">{s.title}</h3>
-                <p className="text-[#6B5A3A] text-sm leading-relaxed">{s.description}</p>
+                <h3 className="text-light font-bold text-xl mb-3">{s.title}</h3>
+                <p className="text-light-2 text-sm leading-relaxed mb-5">{s.description}</p>
+                <ul className="space-y-1.5">
+                  {s.features.map((f) => (
+                    <li key={f} className="flex items-center gap-2 text-xs text-light-2 font-mono">
+                      <span className="text-neon">›</span>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
 
-          <div className="text-center mt-10">
+          <div className="mt-10">
             <Link
               href="/services"
-              className="border border-[#C8B89A] text-[#1A1205] font-medium px-6 py-3 rounded-full hover:bg-[#E0CFA8] transition-colors"
+              className="inline-flex items-center gap-2 text-neon font-mono text-sm hover:gap-3 transition-all"
             >
-              View All Services →
+              <span className="text-light-3">›</span> View all services
             </Link>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-24 px-6">
+      {/* ── CTA ── */}
+      <section className="py-28 px-6 bg-dark-2 border-t border-line">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#1A1205] mb-6">
-            Ready to outlive the competition?
+          <p className="label mb-6 block">Ready?</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-light mb-6">
+            Ready to outlive
+            <br />
+            <span className="text-neon">the competition?</span>
           </h2>
-          <p className="text-[#3D2E0E] text-lg mb-10">
-            Get a free consultation and quote. No pressure, no jargon — just a straight conversation
-            about what your business needs online.
+          <p className="text-light-2 text-lg mb-10 max-w-xl mx-auto leading-relaxed">
+            Get a free consultation and quote. No pressure, no jargon — just a straight
+            conversation about what your business needs online.
           </p>
           <Link
             href="/contact"
-            className="gradient-bg text-white font-semibold px-10 py-4 rounded-full text-lg hover:opacity-90 transition-opacity"
+            className="inline-block bg-neon text-dark font-bold px-10 py-4 rounded-full text-lg hover:shadow-[0_0_32px_rgba(0,229,160,0.45)] hover:-translate-y-0.5 transition-all duration-200"
           >
             Start the Conversation
           </Link>

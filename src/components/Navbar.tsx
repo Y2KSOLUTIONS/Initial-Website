@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useState } from "react";
 
 const links = [
@@ -16,41 +15,38 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 bg-[#0A0F1E] border-b border-[#1F2937]">
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-24">
-        <Link href="/" className="flex items-center">
-          <Image
-            src="/logo.png"
-            alt="Y2K Solutions LLC"
-            width={220}
-            height={88}
-            className="h-20 w-auto object-contain"
-            priority
-          />
+    <nav className="sticky top-0 z-50 bg-dark/95 border-b border-line backdrop-blur-sm">
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
+        <Link href="/" className="flex items-center gap-1.5">
+          <span className="text-neon font-mono text-sm leading-none">{">"}</span>
+          <span className="font-bold text-light text-lg tracking-tight font-display">
+            Y2K Solutions
+          </span>
+          <span className="text-light-3 font-mono text-xs leading-none">LLC</span>
         </Link>
 
-        {/* Desktop nav */}
+        {/* Desktop */}
         <div className="hidden md:flex items-center gap-8">
           {links.map((l) => (
             <Link
               key={l.href}
               href={l.href}
-              className="text-sm text-gray-300 hover:text-white transition-colors font-medium"
+              className="text-sm text-light-2 hover:text-light transition-colors font-medium"
             >
               {l.label}
             </Link>
           ))}
           <Link
             href="/contact"
-            className="gradient-bg text-white text-sm font-medium px-4 py-2 rounded-full hover:opacity-90 transition-opacity"
+            className="bg-neon text-dark text-sm font-bold px-5 py-2 rounded-full hover:shadow-[0_0_20px_rgba(0,229,160,0.4)] transition-all duration-200"
           >
-            Get a Free Quote
+            Free Quote
           </Link>
         </div>
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden text-gray-300 hover:text-white p-2"
+          className="md:hidden text-light-2 hover:text-light p-2"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -70,12 +66,12 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden bg-[#111827] border-t border-[#1F2937] px-6 py-4 flex flex-col gap-4">
+        <div className="md:hidden bg-dark-2 border-t border-line px-6 py-4 flex flex-col gap-4">
           {links.map((l) => (
             <Link
               key={l.href}
               href={l.href}
-              className="text-gray-300 hover:text-white transition-colors font-medium"
+              className="text-light-2 hover:text-light transition-colors font-medium"
               onClick={() => setOpen(false)}
             >
               {l.label}
@@ -83,10 +79,10 @@ export default function Navbar() {
           ))}
           <Link
             href="/contact"
-            className="gradient-bg text-white text-sm font-medium px-4 py-2 rounded-full text-center hover:opacity-90 transition-opacity"
+            className="bg-neon text-dark text-sm font-bold px-5 py-2.5 rounded-full text-center hover:shadow-[0_0_20px_rgba(0,229,160,0.4)] transition-all"
             onClick={() => setOpen(false)}
           >
-            Get a Free Quote
+            Free Quote
           </Link>
         </div>
       )}
