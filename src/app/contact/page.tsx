@@ -7,13 +7,37 @@ export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
+
+    const form = e.currentTarget;
+    const data = {
+      firstName: (form.elements.namedItem("firstName") as HTMLInputElement).value,
+      lastName: (form.elements.namedItem("lastName") as HTMLInputElement).value,
+      email: (form.elements.namedItem("email") as HTMLInputElement).value,
+      business: (form.elements.namedItem("business") as HTMLInputElement).value,
+      service: (form.elements.namedItem("service") as HTMLSelectElement).value,
+      message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
+    } catch {
+      alert("Something went wrong. Please try again.");
+    } finally {
       setLoading(false);
-      setSubmitted(true);
-    }, 1000);
+    }
   }
 
   return (
