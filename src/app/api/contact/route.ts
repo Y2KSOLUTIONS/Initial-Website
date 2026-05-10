@@ -31,5 +31,11 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 
+  await fetch(process.env.GOOGLE_SHEET_URL!, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ firstName, lastName, email, business, service, message }),
+  });
+
   return NextResponse.json({ success: true });
 }
