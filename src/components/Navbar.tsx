@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import GlitchText from "@/components/GlitchText";
 
 const links = [
   { href: "/", label: "Home" },
@@ -19,9 +20,9 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
         <Link href="/" className="flex items-center gap-1.5">
           <span className="text-neon font-mono text-sm leading-none">{">"}</span>
-          <span className="font-bold text-light text-lg tracking-tight font-display">
+          <GlitchText className="font-bold text-light text-lg tracking-tight font-display">
             Y2K Solutions
-          </span>
+          </GlitchText>
           <span className="text-light-3 font-mono text-xs leading-none">LLC</span>
         </Link>
 

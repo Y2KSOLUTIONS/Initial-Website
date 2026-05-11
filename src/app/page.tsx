@@ -1,6 +1,9 @@
 import Link from "next/link";
 import ParticleCanvas from "@/components/ParticleCanvas";
 import HeroHeadline from "@/components/HeroHeadline";
+import Ticker from "@/components/Ticker";
+import HowItWorks from "@/components/HowItWorks";
+import GlitchText from "@/components/GlitchText";
 
 const services = [
   {
@@ -151,6 +154,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── Ticker ── */}
+      <Ticker />
+
       {/* ── Y2K Story ── */}
       <section className="py-28 px-6 relative overflow-hidden">
         <div className="absolute inset-0 dot-grid opacity-25" />
@@ -171,6 +177,25 @@ export default function HomePage() {
               We exist to make sure that never happens to you.
             </span>
           </p>
+        </div>
+      </section>
+
+      {/* Divider */}
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="h-px bg-gradient-to-r from-transparent via-line-2 to-transparent" />
+      </div>
+
+      {/* ── How It Works ── */}
+      <section className="py-28 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="mb-16 text-center">
+            <p className="label mb-4 block">The Process</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-light">
+              From idea to{" "}
+              <span className="gradient-text">live website</span>
+            </h2>
+          </div>
+          <HowItWorks />
         </div>
       </section>
 
@@ -228,7 +253,7 @@ export default function HomePage() {
           <h2 className="text-4xl md:text-5xl font-bold text-light mb-6">
             Ready to outlive
             <br />
-            <span className="text-neon">the competition?</span>
+            <GlitchText className="text-neon">the competition?</GlitchText>
           </h2>
           <p className="text-light-2 text-lg mb-10 max-w-xl mx-auto leading-relaxed">
             Get a free consultation and quote. No pressure, no jargon — just a straight

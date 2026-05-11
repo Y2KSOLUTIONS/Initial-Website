@@ -136,3 +136,15 @@ h1, h2, h3, h4, h5, h6 {
 .cursor-blink {
   animation: blink 1.1s step-end infinite;
 }
+
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.ticker-track {
+  animation: ticker 28s linear infinite;
+}
+.group:hover .ticker-track {
+  animation-play-state: paused;
+}
