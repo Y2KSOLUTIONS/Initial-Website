@@ -4,6 +4,7 @@ import HeroHeadline from "@/components/HeroHeadline";
 import Ticker from "@/components/Ticker";
 import HowItWorks from "@/components/HowItWorks";
 import GlitchText from "@/components/GlitchText";
+import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 
 const services = [
   {
@@ -177,6 +178,28 @@ export default function HomePage() {
               We exist to make sure that never happens to you.
             </span>
           </p>
+        </div>
+      </section>
+
+      {/* Divider */}
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="h-px bg-gradient-to-r from-transparent via-line-2 to-transparent" />
+      </div>
+
+      {/* ── Before / After ── */}
+      <section className="py-28 px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="mb-12 text-center">
+            <p className="label mb-4 block">The Transformation</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-light">
+              From outdated to{" "}
+              <span className="gradient-text">unstoppable</span>
+            </h2>
+            <p className="text-light-2 mt-4 max-w-lg mx-auto text-base">
+              This is what we replace — and what we build instead.
+            </p>
+          </div>
+          <BeforeAfterSlider />
         </div>
       </section>
 

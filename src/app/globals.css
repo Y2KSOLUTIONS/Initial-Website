@@ -55,11 +55,20 @@ h1, h2, h3, h4, h5, h6 {
 /* Card with neon left-border accent */
 .card-accent {
   border-left: 3px solid #00E5A0;
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  transition: transform 0.2s ease;
 }
 .card-accent:hover {
-  box-shadow: -6px 0 28px rgba(0, 229, 160, 0.1);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  animation: neon-pulse 2s ease-in-out infinite;
+}
+
+@keyframes neon-pulse {
+  0%, 100% {
+    box-shadow: -4px 0 20px rgba(0, 229, 160, 0.15), 0 0 30px rgba(0, 229, 160, 0.05);
+  }
+  50% {
+    box-shadow: -4px 0 50px rgba(0, 229, 160, 0.35), 0 0 70px rgba(0, 229, 160, 0.1);
+  }
 }
 
 /* Standard card hover */
