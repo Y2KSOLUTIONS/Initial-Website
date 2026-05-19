@@ -1,6 +1,5 @@
 const items = [
   "Custom Websites",
-  "E-Commerce",
   "SEO & Rankings",
   "Local Businesses",
   "Restaurants",

@@ -193,7 +193,6 @@ export default function ContactPage() {
                     <option value="">Select a service...</option>
                     <option value="new-website">New Website</option>
                     <option value="redesign">Website Redesign</option>
-                    <option value="ecommerce">E-Commerce</option>
                     <option value="seo">SEO / Performance</option>
                     <option value="landing-page">Landing Page</option>
                     <option value="maintenance">Maintenance Plan</option>

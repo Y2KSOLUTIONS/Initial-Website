@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import PortfolioSlideshow from "@/components/PortfolioSlideshow";
 
 export const metadata: Metadata = {
   title: "Portfolio | Y2K Solutions LLC",
@@ -22,15 +23,15 @@ const projects = [
   },
   {
     number: "02",
-    title: "Boutique Clothing Shop",
-    category: "E-Commerce Website",
+    title: "Restaurant Group",
+    category: "Custom Website + SEO",
     description:
-      "Built a full online store for a brick-and-mortar boutique expanding to online sales. Launched in under 3 weeks.",
+      "Built a modern site for a multi-location restaurant group with online menus and reservation CTAs. Organic traffic up 3x.",
     stats: [
-      { label: "launch time", value: "< 3wk" },
-      { label: "products", value: "200+" },
+      { label: "organic traffic", value: "+3x" },
+      { label: "launch time", value: "< 2wk" },
     ],
-    tags: ["E-Commerce", "Product Management", "Payments"],
+    tags: ["Web Design", "SEO", "Restaurants"],
   },
   {
     number: "03",
@@ -146,6 +147,8 @@ export default function PortfolioPage() {
           ))}
         </div>
       </section>
+
+      <PortfolioSlideshow />
 
       {/* CTA */}
       <section className="py-24 px-6 bg-dark-2 border-t border-line text-center">

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ember & Vine — Farm-to-Table, Fort Wayne</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --soil: #2a1f14;
+    --bark: #3d2b1a;
+    --ember: #c45c26;
+    --cream: #f7f2ea;
+    --sage: #7a8c6e;
+    --gold: #d4a843;
+    --light: #faf7f2;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--light); color: var(--soil); font-family: 'Jost', sans-serif; overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.4rem 5rem;
+    background: rgba(247,242,234,0.95);
+    border-bottom: 1px solid rgba(42,31,20,0.08);
+    backdrop-filter: blur(10px);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; color: var(--soil); letter-spacing: 1px;
+  }
+  .nav-logo span { color: var(--ember); font-style: italic; }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--soil); font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 400; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--ember); }
+  .nav-reserve {
+    background: var(--ember); color: white;
+    padding: 0.7rem 1.8rem; font-size: 0.75rem; letter-spacing: 2px;
+    text-transform: uppercase; font-weight: 500; text-decoration: none;
+    transition: background 0.2s;
+  }
+  .nav-reserve:hover { background: #b54e1e; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding-bottom: 0;
+    position: relative; overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 60%, rgba(196,92,38,0.25), transparent 50%),
+      radial-gradient(ellipse at 80% 30%, rgba(122,140,110,0.2), transparent 45%),
+      linear-gradient(160deg, #1a1208 0%, #2d1e0f 40%, #3a2510 100%);
+  }
+  .hero-pattern {
+    position: absolute; inset: 0; opacity: 0.04;
+    background-image: radial-gradient(circle, var(--cream) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    padding: 0 5rem 6rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end;
+  }
+  .hero-eyebrow {
+    display: flex; align-items: center; gap: 1rem;
+    color: var(--sage); font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+  .hero-eyebrow span { width: 40px; height: 1px; background: var(--sage); display: inline-block; }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.5rem, 6vw, 6rem);
+    color: var(--cream); line-height: 1.05; margin-bottom: 1.5rem;
+  }
+  h1 em { color: var(--gold); font-style: italic; }
+  .hero-desc { color: rgba(247,242,234,0.6); font-size: 0.95rem; line-height: 1.8; font-weight: 300; margin-bottom: 2rem; }
+  .hero-ctas { display: flex; gap: 1rem; }
+  .btn-ember { background: var(--ember); color: white; padding: 1rem 2rem; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; text-decoration: none; transition: all 0.2s; }
+  .btn-ember:hover { background: #b54e1e; transform: translateY(-2px); }
+  .btn-ghost { border: 1px solid rgba(247,242,234,0.3); color: var(--cream); padding: 1rem 2rem; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 400; text-decoration: none; transition: all 0.2s; }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-right { display: flex; flex-direction: column; gap: 1.5rem; align-items: flex-end; }
+  .hero-badge {
+    background: rgba(247,242,234,0.08);
+    border: 1px solid rgba(247,242,234,0.15);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem 2rem;
+    text-align: center; color: var(--cream);
+  }
+  .badge-big { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--gold); display: block; line-height: 1; }
+  .badge-sm { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; opacity: 0.6; margin-top: 0.3rem; display: block; }
+  .hero-hours-strip {
+    width: 100%;
+    background: var(--ember);
+    display: flex; justify-content: center; gap: 5rem; padding: 1.2rem;
+    position: relative; z-index: 2;
+  }
+  .strip-item { text-align: center; color: white; }
+  .strip-item strong { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; display: block; opacity: 0.8; }
+  .strip-item span { font-family: 'Playfair Display', serif; font-size: 1.1rem; }
+
+  /* DIVIDER */
+  .divider {
+    text-align: center; padding: 4rem 2rem; background: var(--soil);
+    color: var(--cream);
+  }
+  .divider-text {
+    font-family: 'Playfair Display', serif; font-size: 1.3rem; font-style: italic;
+    color: rgba(247,242,234,0.7); max-width: 600px; margin: 0 auto; line-height: 1.8;
+  }
+  .divider-ornament { color: var(--ember); font-size: 1.5rem; margin: 0 1rem; }
+
+  /* MENU SECTION */
+  .menu-section { padding: 7rem 5rem; background: var(--light); }
+  .section-header { text-align: center; margin-bottom: 4rem; }
+  .section-label-center {
+    font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--ember); margin-bottom: 1rem; display: block;
+  }
+  h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.1; }
+  .menu-tabs { display: flex; justify-content: center; gap: 0; margin-bottom: 3rem; border: 1px solid rgba(42,31,20,0.15); width: fit-content; margin-left: auto; margin-right: auto; }
+  .tab { padding: 0.8rem 2rem; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.2s; border: none; background: transparent; font-family: 'Jost', sans-serif; color: var(--soil); border-right: 1px solid rgba(42,31,20,0.15); }
+  .tab:last-child { border-right: none; }
+  .tab.active { background: var(--soil); color: var(--cream); }
+  .menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(42,31,20,0.08); max-width: 900px; margin: 0 auto; }
+  .menu-item { background: var(--light); padding: 1.8rem 2rem; display: flex; justify-content: space-between; align-items: start; gap: 1rem; transition: background 0.2s; }
+  .menu-item:hover { background: rgba(196,92,38,0.04); }
+  .menu-item-info { flex: 1; }
+  .menu-item-name { font-family: 'Playfair Display', serif; font-size: 1rem; margin-bottom: 0.3rem; }
+  .menu-item-desc { font-size: 0.8rem; color: rgba(42,31,20,0.5); line-height: 1.5; font-weight: 300; }
+  .menu-tag { font-size: 0.65rem; letter-spacing: 1px; text-transform: uppercase; color: var(--sage); margin-top: 0.4rem; display: block; }
+  .menu-price { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--ember); white-space: nowrap; }
+
+  /* EXPERIENCE */
+  .experience { padding: 7rem 5rem; background: var(--soil); color: var(--cream); }
+  .exp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; margin-top: 4rem; }
+  .exp-card { text-align: center; }
+  .exp-icon { font-size: 2.5rem; margin-bottom: 1.5rem; display: block; }
+  .exp-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 0.8rem; color: var(--gold); }
+  .exp-desc { font-size: 0.85rem; line-height: 1.7; color: rgba(247,242,234,0.55); font-weight: 300; }
+
+  /* RESERVATION */
+  .reservation {
+    padding: 8rem 5rem;
+    background: var(--cream);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
+  }
+  .res-text h2 { margin-bottom: 1rem; }
+  .res-text p { font-size: 0.95rem; line-height: 1.8; color: rgba(42,31,20,0.6); margin-bottom: 2rem; font-weight: 300; }
+  .res-details { display: flex; flex-direction: column; gap: 0.8rem; margin-bottom: 2rem; }
+  .res-detail { display: flex; align-items: center; gap: 1rem; font-size: 0.85rem; color: rgba(42,31,20,0.7); }
+  .res-detail::before { content: '◆'; color: var(--ember); font-size: 0.5rem; }
+  .res-visual {
+    background: var(--bark);
+    height: 480px; position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .res-visual-inner {
+    background: radial-gradient(ellipse at 40% 60%, rgba(196,92,38,0.3), transparent 60%),
+                linear-gradient(180deg, #3d2b1a, #2a1f14);
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 1rem;
+  }
+  .candle-emoji { font-size: 5rem; }
+  .res-quote {
+    font-family: 'Playfair Display', serif; font-style: italic;
+    font-size: 1rem; color: rgba(247,242,234,0.5);
+    text-align: center; max-width: 200px; line-height: 1.6;
+  }
+
+  /* FOOTER */
+  footer { background: #1a0f08; padding: 3rem 5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--cream); }
+  .footer-logo em { color: var(--ember); }
+  footer p { font-size: 0.75rem; color: rgba(247,242,234,0.3); }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero-content { grid-template-columns: 1fr; padding: 0 1.5rem 4rem; }
+    .hero-right { display: none; }
+    .hero-hours-strip { gap: 2rem; flex-wrap: wrap; }
+    .menu-section { padding: 4rem 1.5rem; }
+    .menu-grid { grid-template-columns: 1fr; }
+    .experience { padding: 4rem 1.5rem; }
+    .exp-grid { grid-template-columns: 1fr; }
+    .reservation { grid-template-columns: 1fr; padding: 4rem 1.5rem; }
+    footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Ember <span>&</span> Vine</div>
+  <ul class="nav-links">
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#reserve">Reserve</a></li>
+  </ul>
+  <a href="#reserve" class="nav-reserve">Reserve a Table</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-content">
+    <div>
+      <div class="hero-eyebrow"><span></span>Farm to Table · Fort Wayne, Indiana</div>
+      <h1>Where <em>local<br>harvest</em> meets<br>open flame.</h1>
+      <p class="hero-desc">Seasonal menus built from Indiana farms, wood-fired in our open kitchen. Dinner service Wednesday through Sunday.</p>
+      <div class="hero-ctas">
+        <a href="#reserve" class="btn-ember">Reserve a Table</a>
+        <a href="#menu" class="btn-ghost">View Menu</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-badge">
+        <span class="badge-big">4.9★</span>
+        <span class="badge-sm">Google Reviews</span>
+      </div>
+      <div class="hero-badge">
+        <span class="badge-big" style="font-size:1.4rem;font-style:italic;font-family:'Playfair Display',serif;">Best New<br>Restaurant</span>
+        <span class="badge-sm">Fort Wayne Magazine 2024</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-hours-strip">
+    <div class="strip-item"><strong>Dinner</strong><span>Wed – Sun</span></div>
+    <div class="strip-item"><strong>Hours</strong><span>5pm – 10pm</span></div>
+    <div class="strip-item"><strong>Location</strong><span>Downtown Fort Wayne</span></div>
+    <div class="strip-item"><strong>Reservations</strong><span>(260) 555-0241</span></div>
+  </div>
+</section>
+
+<div class="divider">
+  <p class="divider-text">
+    <span class="divider-ornament">◆</span>
+    "We source everything within 150 miles. If we can't tell you which farm it came from, it's not on the menu."
+    <span class="divider-ornament">◆</span>
+  </p>
+  <p style="font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;opacity:0.4;margin-top:1rem;">— Chef Marcus Webb, Executive Chef</p>
+</div>
+
+<section class="menu-section" id="menu">
+  <div class="section-header">
+    <span class="section-label-center">Seasonal Menu</span>
+    <h2>Spring Selections</h2>
+    <p style="font-size:0.85rem;color:rgba(42,31,20,0.5);margin-top:0.8rem;font-weight:300;">Menu changes with the season. Last updated May 2025.</p>
+  </div>
+
+  <div style="display:flex;justify-content:center;gap:0;margin-bottom:3rem;border:1px solid rgba(42,31,20,0.15);width:fit-content;margin-left:auto;margin-right:auto;">
+    <button class="tab active">Starters</button>
+    <button class="tab">Mains</button>
+    <button class="tab">Desserts</button>
+  </div>
+
+  <div class="menu-grid">
+    <div class="menu-item">
+      <div class="menu-item-info">
+        <div class="menu-item-name">Ember-Roasted Beet Salad</div>
+        <div class="menu-item-desc">Charred beets, goat cheese, candied walnuts, arugula, sherry vinaigrette</div>
+        <span class="menu-tag">🌱 Vegetarian · Beasley Farm, Huntington IN</span>
+      </div>
+      <div class="menu-price">$14</div>
+    </div>
+    <div class="menu-item">
+      <div class="menu-item-info">
+        <div class="menu-item-name">Indiana Pork Belly</div>
+        <div class="menu-item-desc">Slow-braised, apple cider glaze, pickled fennel, smoked aioli</div>
+        <span class="menu-tag">Heritage Acres, Warsaw IN</span>
+      </div>
+      <div class="menu-price">$16</div>
+    </div>
+    <div class="menu-item">
+      <div class="menu-item-info">
+        <div class="menu-item-name">Wood-Fired Bread</div>
+        <div class="menu-item-desc">House sourdough, cultured butter, roasted garlic, flaky sea salt</div>
+        <span class="menu-tag">🌱 Vegan option available</span>
+      </div>
+      <div class="menu-price">$9</div>
+    </div>
+    <div class="menu-item">
+      <div class="menu-item-info">
+        <div class="menu-item-name">Mushroom Crostini</div>
+        <div class="menu-item-desc">Foraged chanterelles, truffle oil, shaved parmesan, toasted brioche</div>
+        <span class="menu-tag">🌱 Vegetarian · Foraged locally</span>
+      </div>
+      <div class="menu-price">$13</div>
+    </div>
+    <div class="menu-item">
+      <div class="menu-item-info">
+        <div class="menu-item-name">Smoked Trout Tartine</div>
+        <div class="menu-item-desc">House-smoked trout, crème fraîche, capers, rye, micro herbs</div>
+        <span class="menu-tag">Swan Lake Fishery, Columbia City IN</span>
+      </div>
+      <div class="menu-price">$15</div>
+    </div>
+    <div class="menu-item">
+      <div class="menu-item-info">
+        <div class="menu-item-name">Soup of the Day</div>
+        <div class="menu-item-desc">Ask your server. Changes daily based on what came in from the farms that morning.</div>
+        <span class="menu-tag">Always seasonal, always local</span>
+      </div>
+      <div class="menu-price">$11</div>
+    </div>
+  </div>
+</section>
+
+<section class="experience" id="experience">
+  <div class="section-header" style="text-align:center;">
+    <span class="section-label-center" style="color:var(--gold);">The Ember & Vine Experience</span>
+    <h2 style="color:var(--cream);">More Than a Meal</h2>
+  </div>
+  <div class="exp-grid">
+    <div class="exp-card">
+      <span class="exp-icon">🔥</span>
+      <div class="exp-title">Open-Fire Kitchen</div>
+      <p class="exp-desc">Watch your meal prepared in our open wood-fire kitchen. Every dish carries the flavor of the flame.</p>
+    </div>
+    <div class="exp-card">
+      <span class="exp-icon">🌾</span>
+      <div class="exp-title">Sourced Within 150 Miles</div>
+      <p class="exp-desc">Every ingredient sourced from Indiana and surrounding farms. We name the farms on the menu — no mystery here.</p>
+    </div>
+    <div class="exp-card">
+      <span class="exp-icon">🍷</span>
+      <div class="exp-title">Curated Wine List</div>
+      <p class="exp-desc">Small-production wines from independent growers, curated by our sommelier to complement every season's menu.</p>
+    </div>
+  </div>
+</section>
+
+<section class="reservation" id="reserve">
+  <div class="res-text">
+    <span class="section-label-center" style="text-align:left;display:block;">Reservations</span>
+    <h2>Join Us for<br>Dinner</h2>
+    <p>We seat limited covers each evening to ensure every table gets the attention it deserves. Walk-ins welcome based on availability — reservations recommended for weekends.</p>
+    <div class="res-details">
+      <div class="res-detail">Dinner service: Wednesday through Sunday, 5pm–10pm</div>
+      <div class="res-detail">Private dining available for parties of 8+</div>
+      <div class="res-detail">Full bar, wine, and non-alcoholic pairings</div>
+      <div class="res-detail">Dietary accommodations with advance notice</div>
+    </div>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+      <a href="#" class="btn-ember">Reserve Online</a>
+      <a href="tel:2605550241" class="btn-ghost" style="border-color:rgba(42,31,20,0.3);color:var(--soil);">(260) 555-0241</a>
+    </div>
+  </div>
+  <div class="res-visual">
+    <div class="res-visual-inner">
+      <span class="candle-emoji">🕯️</span>
+      <p class="res-quote">"The best table in Fort Wayne is waiting for you."</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Ember <em>&</em> Vine</div>
+  <p>142 W Berry St, Fort Wayne, IN 46802 · (260) 555-0241</p>
+  <p style="font-size:0.7rem;opacity:0.3;">Demo site — designed by [Your Business Name]</p>
+</footer>
+
+</body>
+</html>

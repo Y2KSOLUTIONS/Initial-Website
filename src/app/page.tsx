@@ -14,12 +14,6 @@ const services = [
     features: ["Mobile-first design", "Fast load times", "Brand-aligned aesthetic", "Easy to update"],
   },
   {
-    title: "E-Commerce",
-    description:
-      "Sell online with a smooth, secure shopping experience. From 10 products to 10,000.",
-    features: ["Product management", "Secure checkout", "Inventory tracking", "Payment integrations"],
-  },
-  {
     title: "SEO & Performance",
     description:
       "Get found on Google. We bake SEO in from day one so your customers can find you.",
@@ -30,6 +24,12 @@ const services = [
     description:
       "We handle the tech. You run your business. Ongoing plans to keep your site secure and fast.",
     features: ["Security updates", "Content changes", "Uptime monitoring", "Monthly reports"],
+  },
+  {
+    title: "Landing Pages",
+    description:
+      "High-converting pages for campaigns, product launches, or lead generation. Built fast, built to perform.",
+    features: ["A/B test ready", "Fast deployment", "Lead capture forms", "Analytics integration"],
   },
 ];
 

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arctic Air HVAC & Plumbing — Fort Wayne, IN</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0b1929;
+    --blue: #1a3a5c;
+    --ice: #4a9eca;
+    --cyan: #00c4e8;
+    --white: #f4f8fb;
+    --gray: #8a9bb0;
+    --orange: #e8610a;
+    --mid: #142236;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--white); color: var(--navy); font-family: 'Inter', sans-serif; overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 4rem; height: 70px;
+    background: var(--navy);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 0.8rem; }
+  .logo-icon { width: 36px; height: 36px; background: var(--cyan); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+  .logo-text { font-family: 'Rajdhani', sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--white); letter-spacing: 1px; }
+  .logo-text span { color: var(--cyan); }
+  .nav-contact { display: flex; align-items: center; gap: 2rem; }
+  .nav-phone { color: var(--cyan); font-family: 'Rajdhani', sans-serif; font-size: 1.1rem; font-weight: 600; text-decoration: none; letter-spacing: 1px; }
+  .nav-emergency {
+    background: var(--orange); color: white;
+    padding: 0.6rem 1.4rem; font-size: 0.72rem; letter-spacing: 1px;
+    text-transform: uppercase; font-weight: 500; text-decoration: none;
+    display: flex; align-items: center; gap: 0.5rem;
+    animation: pulse-orange 2s ease-in-out infinite;
+  }
+  @keyframes pulse-orange { 0%, 100% { background: var(--orange); } 50% { background: #c04d00; } }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 60%, #1a4a6e 100%);
+    position: relative; overflow: hidden;
+    display: flex; align-items: center;
+    padding: 7rem 4rem 4rem;
+  }
+  .hero-grid-bg {
+    position: absolute; inset: 0; opacity: 0.05;
+    background-image:
+      linear-gradient(rgba(0,196,232,1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,196,232,1) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-glow {
+    position: absolute; top: 20%; right: 10%;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(0,196,232,0.15), transparent 70%);
+    pointer-events: none;
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 700px; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    background: rgba(0,196,232,0.1); border: 1px solid rgba(0,196,232,0.3);
+    padding: 0.4rem 1rem; margin-bottom: 1.5rem;
+    font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--cyan);
+  }
+  .badge-dot { width: 6px; height: 6px; background: var(--cyan); border-radius: 50%; animation: blink 1.5s ease-in-out infinite; }
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+  h1 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 700; line-height: 1.0;
+    color: var(--white); margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+  }
+  h1 span { color: var(--cyan); }
+  .hero-sub { font-size: 1rem; color: rgba(244,248,251,0.6); line-height: 1.7; max-width: 500px; margin-bottom: 2.5rem; font-weight: 300; }
+  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
+  .btn-cyan { background: var(--cyan); color: var(--navy); padding: 1rem 2rem; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; font-weight: 600; text-decoration: none; transition: all 0.2s; font-family: 'Rajdhani', sans-serif; }
+  .btn-cyan:hover { background: #00daff; transform: translateY(-2px); }
+  .btn-emergency { background: var(--orange); color: white; padding: 1rem 2rem; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; font-weight: 600; text-decoration: none; transition: all 0.2s; font-family: 'Rajdhani', sans-serif; }
+  .btn-emergency:hover { background: #c04d00; }
+  .hero-stats { display: flex; gap: 3rem; flex-wrap: wrap; }
+  .hero-stat { }
+  .stat-n { font-family: 'Rajdhani', sans-serif; font-size: 2.2rem; font-weight: 700; color: var(--cyan); display: block; line-height: 1; }
+  .stat-l { font-size: 0.72rem; letter-spacing: 1px; text-transform: uppercase; color: rgba(244,248,251,0.4); margin-top: 0.2rem; display: block; }
+
+  /* SERVICES STRIP */
+  .services-strip {
+    background: var(--mid);
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    border-top: 2px solid var(--cyan);
+  }
+  .strip-service {
+    padding: 2rem; text-align: center;
+    border-right: 1px solid rgba(74,158,202,0.15);
+    transition: background 0.2s; cursor: default;
+  }
+  .strip-service:last-child { border-right: none; }
+  .strip-service:hover { background: rgba(0,196,232,0.05); }
+  .strip-icon { font-size: 2rem; margin-bottom: 0.8rem; display: block; }
+  .strip-name { font-family: 'Rajdhani', sans-serif; font-size: 1rem; font-weight: 600; color: var(--white); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.3rem; }
+  .strip-desc { font-size: 0.75rem; color: var(--gray); line-height: 1.4; }
+
+  /* MAIN SERVICES */
+  .services-full { padding: 6rem 4rem; background: var(--white); }
+  .section-eyebrow { font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; color: var(--ice); margin-bottom: 0.8rem; display: block; }
+  h2 { font-family: 'Rajdhani', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; letter-spacing: 1px; margin-bottom: 3rem; }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .svc-card {
+    border: 1px solid rgba(11,25,41,0.08);
+    padding: 2rem; position: relative; overflow: hidden;
+    transition: all 0.3s;
+  }
+  .svc-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: var(--cyan); transform: scaleX(0); transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .svc-card:hover { border-color: rgba(0,196,232,0.3); box-shadow: 0 8px 30px rgba(0,196,232,0.08); transform: translateY(-3px); }
+  .svc-card:hover::before { transform: scaleX(1); }
+  .svc-card-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+  .svc-card-name { font-family: 'Rajdhani', sans-serif; font-size: 1.1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; color: var(--navy); }
+  .svc-card-desc { font-size: 0.82rem; color: rgba(11,25,41,0.5); line-height: 1.6; margin-bottom: 1rem; }
+  .svc-card-link { font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; color: var(--ice); font-weight: 500; text-decoration: none; display: flex; align-items: center; gap: 0.4rem; }
+  .svc-card-link::after { content: '→'; transition: transform 0.2s; }
+  .svc-card:hover .svc-card-link::after { transform: translateX(4px); }
+
+  /* WHY US */
+  .why { padding: 6rem 4rem; background: var(--navy); color: var(--white); }
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; margin-top: 3rem; }
+  .why-list { display: flex; flex-direction: column; gap: 1.5rem; }
+  .why-item { display: flex; gap: 1.5rem; align-items: flex-start; }
+  .why-num { font-family: 'Rajdhani', sans-serif; font-size: 2rem; font-weight: 700; color: var(--cyan); opacity: 0.4; min-width: 40px; line-height: 1; }
+  .why-content h3 { font-family: 'Rajdhani', sans-serif; font-size: 1.1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.3rem; color: var(--white); }
+  .why-content p { font-size: 0.82rem; color: var(--gray); line-height: 1.6; font-weight: 300; }
+  .why-certs { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .cert-badge {
+    background: rgba(0,196,232,0.08); border: 1px solid rgba(0,196,232,0.2);
+    padding: 1.2rem; text-align: center;
+  }
+  .cert-icon { font-size: 2rem; display: block; margin-bottom: 0.5rem; }
+  .cert-name { font-family: 'Rajdhani', sans-serif; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--cyan); }
+  .cert-sub { font-size: 0.7rem; color: var(--gray); margin-top: 0.2rem; }
+
+  /* EMERGENCY */
+  .emergency {
+    background: var(--orange); padding: 4rem;
+    display: flex; justify-content: space-between; align-items: center; gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .emg-text h2 { font-family: 'Rajdhani', sans-serif; font-size: 2.5rem; font-weight: 700; color: white; letter-spacing: 1px; margin-bottom: 0.5rem; }
+  .emg-text p { color: rgba(255,255,255,0.8); font-size: 0.9rem; }
+  .emg-phone { font-family: 'Rajdhani', sans-serif; font-size: 2.5rem; font-weight: 700; color: white; text-decoration: none; letter-spacing: 2px; }
+  .btn-white { background: white; color: var(--orange); padding: 1rem 2.5rem; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; font-weight: 700; text-decoration: none; font-family: 'Rajdhani', sans-serif; transition: all 0.2s; }
+  .btn-white:hover { background: var(--navy); color: white; }
+
+  /* SERVICE AREA */
+  .area { padding: 5rem 4rem; background: var(--white); }
+  .area-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; margin-top: 2rem; }
+  .area-tag {
+    background: rgba(11,25,41,0.04); border: 1px solid rgba(11,25,41,0.08);
+    padding: 0.7rem 1rem; font-size: 0.8rem; text-align: center;
+    transition: all 0.2s;
+  }
+  .area-tag:hover { background: rgba(0,196,232,0.08); border-color: rgba(0,196,232,0.3); color: var(--ice); }
+  .area-tag.primary { background: var(--navy); color: var(--white); border-color: var(--navy); }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy); padding: 3rem 4rem;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+    border-top: 2px solid var(--cyan);
+  }
+  .footer-logo-text { font-family: 'Rajdhani', sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--white); }
+  .footer-logo-text span { color: var(--cyan); }
+  footer p { font-size: 0.75rem; color: var(--gray); }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 1.5rem; }
+    .nav-phone { display: none; }
+    .hero { padding: 5rem 1.5rem 3rem; }
+    .services-strip { grid-template-columns: 1fr 1fr; }
+    .services-full { padding: 4rem 1.5rem; }
+    .services-grid { grid-template-columns: 1fr; }
+    .why { padding: 4rem 1.5rem; }
+    .why-grid { grid-template-columns: 1fr; }
+    .emergency { padding: 3rem 1.5rem; flex-direction: column; }
+    .area { padding: 4rem 1.5rem; }
+    .area-grid { grid-template-columns: repeat(2, 1fr); }
+    footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <div class="logo-icon">❄️</div>
+    <div class="logo-text">Arctic <span>Air</span></div>
+  </div>
+  <div class="nav-contact">
+    <a href="tel:2605550371" class="nav-phone">(260) 555-0371</a>
+    <a href="#emergency" class="nav-emergency"><span>⚡</span> 24/7 Emergency</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><span class="badge-dot"></span>Licensed & Insured · Fort Wayne, Indiana</div>
+    <h1>HVAC & Plumbing<br><span>Done Right.</span><br>Done Fast.</h1>
+    <p class="hero-sub">Same-day service for heating, cooling, and plumbing in Fort Wayne and surrounding areas. No surprises on your bill — flat-rate pricing on every job.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn-cyan">Get a Free Quote</a>
+      <a href="tel:2605550371" class="btn-emergency">⚡ Emergency Line</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><span class="stat-n">15+</span><span class="stat-l">Years Serving<br>Fort Wayne</span></div>
+      <div class="hero-stat"><span class="stat-n">4,800+</span><span class="stat-l">Jobs<br>Completed</span></div>
+      <div class="hero-stat"><span class="stat-n">24/7</span><span class="stat-l">Emergency<br>Service</span></div>
+      <div class="hero-stat"><span class="stat-n">4.8★</span><span class="stat-l">Google<br>Rating</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="services-strip">
+  <div class="strip-service">
+    <span class="strip-icon">🌡️</span>
+    <div class="strip-name">Heating</div>
+    <div class="strip-desc">Furnace repair, install & maintenance</div>
+  </div>
+  <div class="strip-service">
+    <span class="strip-icon">❄️</span>
+    <div class="strip-name">Cooling</div>
+    <div class="strip-desc">AC repair, install & tune-ups</div>
+  </div>
+  <div class="strip-service">
+    <span class="strip-icon">🔧</span>
+    <div class="strip-name">Plumbing</div>
+    <div class="strip-desc">Leaks, drains, water heaters</div>
+  </div>
+  <div class="strip-service">
+    <span class="strip-icon">⚡</span>
+    <div class="strip-name">Emergency</div>
+    <div class="strip-desc">Available 24 hours, 7 days a week</div>
+  </div>
+</div>
+
+<section class="services-full" id="services">
+  <span class="section-eyebrow">Our Services</span>
+  <h2>Everything Your<br>Home Needs</h2>
+  <div class="services-grid">
+    <div class="svc-card">
+      <span class="svc-card-icon">🔥</span>
+      <div class="svc-card-name">Furnace Repair</div>
+      <p class="svc-card-desc">Gas, electric, and heat pump systems. Same-day diagnosis and repair for most furnace issues.</p>
+      <a href="#contact" class="svc-card-link">Schedule Service</a>
+    </div>
+    <div class="svc-card">
+      <span class="svc-card-icon">❄️</span>
+      <div class="svc-card-name">AC Repair & Install</div>
+      <p class="svc-card-desc">Central air, ductless mini-splits, and window units. We service all major brands.</p>
+      <a href="#contact" class="svc-card-link">Schedule Service</a>
+    </div>
+    <div class="svc-card">
+      <span class="svc-card-icon">🔄</span>
+      <div class="svc-card-name">HVAC Maintenance</div>
+      <p class="svc-card-desc">Annual tune-ups that extend equipment life and keep your energy bill in check.</p>
+      <a href="#contact" class="svc-card-link">Book Tune-Up</a>
+    </div>
+    <div class="svc-card">
+      <span class="svc-card-icon">💧</span>
+      <div class="svc-card-name">Leak Repair</div>
+      <p class="svc-card-desc">Pipe leaks, burst pipes, fixture leaks. Identified and repaired before the damage spreads.</p>
+      <a href="#contact" class="svc-card-link">Get Help Now</a>
+    </div>
+    <div class="svc-card">
+      <span class="svc-card-icon">🚿</span>
+      <div class="svc-card-name">Drain Cleaning</div>
+      <p class="svc-card-desc">Slow drains, clogged sewer lines, root intrusion. Camera inspection available.</p>
+      <a href="#contact" class="svc-card-link">Schedule Service</a>
+    </div>
+    <div class="svc-card">
+      <span class="svc-card-icon">🌊</span>
+      <div class="svc-card-name">Water Heater</div>
+      <p class="svc-card-desc">Repair or replace traditional and tankless water heaters. Same-day installs available.</p>
+      <a href="#contact" class="svc-card-link">Get a Quote</a>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="why">
+  <span class="section-eyebrow" style="color:var(--cyan);">Why Arctic Air</span>
+  <h2 style="color:var(--white);margin-bottom:0;">Why Fort Wayne<br>Trusts Us</h2>
+  <div class="why-grid">
+    <div class="why-list">
+      <div class="why-item">
+        <div class="why-num">01</div>
+        <div class="why-content">
+          <h3>Flat-Rate Pricing</h3>
+          <p>You get a price before we start. No hourly billing, no surprise charges, no "we found something else." What we quote is what you pay.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">02</div>
+        <div class="why-content">
+          <h3>Same-Day Service</h3>
+          <p>For most calls, we arrive the same day — often within 2–4 hours. Fort Wayne winters don't wait and neither do we.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">03</div>
+        <div class="why-content">
+          <h3>Local, Not a Franchise</h3>
+          <p>We're a Fort Wayne company. You talk to the same people every time, and your call never goes to a national call center.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">04</div>
+        <div class="why-content">
+          <h3>Fully Licensed & Insured</h3>
+          <p>Indiana-licensed HVAC technicians and master plumbers. Fully insured on every job, every time.</p>
+        </div>
+      </div>
+    </div>
+    <div class="why-certs">
+      <div class="cert-badge">
+        <span class="cert-icon">🏅</span>
+        <div class="cert-name">NATE Certified</div>
+        <div class="cert-sub">HVAC Excellence</div>
+      </div>
+      <div class="cert-badge">
+        <span class="cert-icon">🔒</span>
+        <div class="cert-name">Fully Insured</div>
+        <div class="cert-sub">$2M Liability</div>
+      </div>
+      <div class="cert-badge">
+        <span class="cert-icon">⭐</span>
+        <div class="cert-name">4.8 Stars</div>
+        <div class="cert-sub">450+ Google Reviews</div>
+      </div>
+      <div class="cert-badge">
+        <span class="cert-icon">🏠</span>
+        <div class="cert-name">Indiana Licensed</div>
+        <div class="cert-sub">HVAC & Plumbing</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="emergency" id="emergency">
+  <div class="emg-text">
+    <h2>⚡ 24/7 Emergency Service</h2>
+    <p>Furnace out at 2am? Pipe burst on a Sunday? We answer every call, every hour.</p>
+  </div>
+  <a href="tel:2605550371" class="emg-phone">(260) 555-0371</a>
+  <a href="tel:2605550371" class="btn-white">Call Now</a>
+</section>
+
+<section class="area" id="contact">
+  <span class="section-eyebrow">Service Area</span>
+  <h2>Serving Fort Wayne<br>& Surrounding Areas</h2>
+  <div class="area-grid">
+    <div class="area-tag primary">Fort Wayne ★</div>
+    <div class="area-tag">New Haven</div>
+    <div class="area-tag">Huntertown</div>
+    <div class="area-tag">Leo-Cedarville</div>
+    <div class="area-tag">Grabill</div>
+    <div class="area-tag">Woodburn</div>
+    <div class="area-tag">Monroeville</div>
+    <div class="area-tag">Ossian</div>
+    <div class="area-tag">Bluffton</div>
+    <div class="area-tag">Decatur</div>
+    <div class="area-tag">Columbia City</div>
+    <div class="area-tag">Auburn</div>
+  </div>
+  <div style="margin-top:3rem;background:rgba(11,25,41,0.04);border:1px solid rgba(11,25,41,0.08);padding:2.5rem;max-width:600px;">
+    <h3 style="font-family:'Rajdhani',sans-serif;font-size:1.3rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:1.5rem;">Request a Free Quote</h3>
+    <p style="font-size:0.85rem;color:rgba(11,25,41,0.55);margin-bottom:1.5rem;line-height:1.6;">Tell us what's going on and we'll get back to you within the hour — or call us directly for faster service.</p>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+      <a href="tel:2605550371" class="btn-cyan">📞 (260) 555-0371</a>
+      <a href="#" style="background:transparent;border:1px solid rgba(11,25,41,0.2);color:var(--navy);padding:1rem 2rem;font-size:0.8rem;letter-spacing:1px;text-transform:uppercase;font-weight:500;text-decoration:none;font-family:'Rajdhani',sans-serif;">Request Online</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <div class="footer-logo-text">Arctic <span>Air</span> HVAC & Plumbing</div>
+    <p style="margin-top:0.3rem;">Fort Wayne, IN · Licensed · Insured · 15 Years Local</p>
+  </div>
+  <p>(260) 555-0371 · info@arcticairfw.com</p>
+  <p style="font-size:0.7rem;opacity:0.4;">Demo site — designed by [Your Business Name]</p>
+</footer>
+
+</body>
+</html>

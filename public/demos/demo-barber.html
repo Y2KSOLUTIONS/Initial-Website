@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kings & Cuts Barbershop — Fort Wayne, IN</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --cream: #f5f0e8;
+    --gold: #c9a84c;
+    --red: #8b1a1a;
+    --mid: #1c1c1c;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--black); color: var(--cream); font-family: 'Barlow', sans-serif; overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.2rem 4rem;
+    background: rgba(10,10,10,0.92);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    backdrop-filter: blur(8px);
+  }
+  .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 3px; color: var(--gold); }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--cream); font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    background: var(--gold); color: var(--black); padding: 0.6rem 1.6rem;
+    font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase;
+    font-weight: 600; text-decoration: none; transition: background 0.2s;
+  }
+  .nav-cta:hover { background: #e0bb5a; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    padding-top: 80px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      90deg,
+      transparent, transparent 60px,
+      rgba(201,168,76,0.03) 60px, rgba(201,168,76,0.03) 61px
+    );
+  }
+  .hero-text {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 6rem 4rem 4rem;
+    position: relative; z-index: 2;
+  }
+  .hero-eyebrow {
+    font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .hero-eyebrow::before { content: ''; width: 40px; height: 1px; background: var(--gold); }
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 8vw, 7rem);
+    line-height: 0.9;
+    color: var(--cream);
+    margin-bottom: 1.5rem;
+  }
+  h1 span { color: var(--gold); display: block; }
+  .hero-sub {
+    font-size: 1rem; line-height: 1.7; color: rgba(245,240,232,0.6);
+    max-width: 380px; margin-bottom: 2.5rem; font-weight: 300;
+  }
+  .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--gold); color: var(--black);
+    padding: 1rem 2.2rem; font-size: 0.75rem; letter-spacing: 2px;
+    text-transform: uppercase; font-weight: 700; text-decoration: none;
+    transition: all 0.2s;
+  }
+  .btn-primary:hover { background: #e0bb5a; transform: translateY(-2px); }
+  .btn-outline {
+    border: 1px solid rgba(245,240,232,0.3); color: var(--cream);
+    padding: 1rem 2.2rem; font-size: 0.75rem; letter-spacing: 2px;
+    text-transform: uppercase; font-weight: 500; text-decoration: none;
+    transition: all 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-visual {
+    position: relative; overflow: hidden;
+    background: var(--mid);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hero-visual-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 30% 50%, rgba(139,26,26,0.3), transparent 60%),
+      radial-gradient(ellipse at 80% 80%, rgba(201,168,76,0.15), transparent 50%),
+      linear-gradient(135deg, #1a1a1a, #0d0d0d);
+  }
+  .barber-pole {
+    position: relative; z-index: 2;
+    width: 80px; height: 320px; border-radius: 40px;
+    overflow: hidden;
+    box-shadow: 0 0 60px rgba(201,168,76,0.3);
+  }
+  .pole-inner {
+    width: 100%; height: 200%;
+    background: repeating-linear-gradient(
+      -45deg,
+      #fff 0px, #fff 20px,
+      var(--red) 20px, var(--red) 40px,
+      #1a5fa8 40px, #1a5fa8 60px
+    );
+    animation: spin 3s linear infinite;
+  }
+  @keyframes spin { from { transform: translateY(0); } to { transform: translateY(-50%); } }
+  .hero-stat-bar {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    display: flex;
+    background: rgba(201,168,76,0.08);
+    border-top: 1px solid rgba(201,168,76,0.2);
+    z-index: 10;
+  }
+  .stat { flex: 1; padding: 1.5rem 2rem; border-right: 1px solid rgba(201,168,76,0.15); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; color: var(--gold); display: block; }
+  .stat-label { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(245,240,232,0.4); }
+
+  /* SERVICES */
+  .services { padding: 7rem 4rem; background: var(--mid); position: relative; }
+  .services::before {
+    content: 'SERVICES';
+    position: absolute; right: 3rem; top: 3rem;
+    font-family: 'Bebas Neue', sans-serif; font-size: 8rem;
+    color: rgba(201,168,76,0.04); letter-spacing: 10px; pointer-events: none;
+  }
+  .section-label {
+    font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .section-label::before { content: ''; width: 30px; height: 1px; background: var(--gold); }
+  h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: 3rem; line-height: 1;
+  }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(201,168,76,0.1); }
+  .service-card {
+    background: var(--mid); padding: 2.5rem;
+    transition: background 0.3s;
+    position: relative; overflow: hidden;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+    background: var(--gold);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .service-card:hover { background: rgba(201,168,76,0.05); }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-icon { font-size: 2rem; margin-bottom: 1rem; }
+  .service-name { font-family: 'Barlow Condensed', sans-serif; font-size: 1.3rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .service-desc { font-size: 0.85rem; color: rgba(245,240,232,0.5); line-height: 1.6; margin-bottom: 1rem; }
+  .service-price { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: var(--gold); }
+
+  /* ABOUT */
+  .about {
+    padding: 7rem 4rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
+  }
+  .about-visual {
+    background: var(--mid);
+    height: 500px; position: relative; overflow: hidden;
+  }
+  .about-visual-inner {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 60% 40%, rgba(201,168,76,0.2), transparent 60%),
+      linear-gradient(180deg, #1c1c1c, #0a0a0a);
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 1rem;
+  }
+  .scissors-icon { font-size: 5rem; opacity: 0.6; }
+  .about-badge {
+    position: absolute; bottom: -1px; right: -1px;
+    background: var(--gold); color: var(--black);
+    padding: 1.5rem; text-align: center;
+  }
+  .badge-num { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; display: block; line-height: 1; }
+  .badge-text { font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; }
+  .about-text p { font-size: 0.95rem; line-height: 1.8; color: rgba(245,240,232,0.65); margin-bottom: 1.5rem; font-weight: 300; }
+  .about-list { list-style: none; margin: 2rem 0; }
+  .about-list li {
+    padding: 0.7rem 0; border-bottom: 1px solid rgba(201,168,76,0.1);
+    font-size: 0.85rem; color: rgba(245,240,232,0.7);
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .about-list li::before { content: '✦'; color: var(--gold); font-size: 0.6rem; }
+
+  /* HOURS */
+  .hours { padding: 5rem 4rem; background: var(--red); position: relative; overflow: hidden; }
+  .hours::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(0,0,0,0.1) 20px, rgba(0,0,0,0.1) 21px);
+  }
+  .hours-inner { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .hours-title { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; margin-bottom: 0.5rem; }
+  .hours-address { font-size: 0.85rem; opacity: 0.8; line-height: 1.6; }
+  .hours-table { width: 100%; border-collapse: collapse; }
+  .hours-table tr { border-bottom: 1px solid rgba(255,255,255,0.15); }
+  .hours-table td { padding: 0.8rem 0; font-size: 0.9rem; }
+  .hours-table td:last-child { text-align: right; opacity: 0.85; }
+  .hours-table tr.today td { color: var(--gold); font-weight: 600; }
+
+  /* BOOKING CTA */
+  .booking {
+    padding: 8rem 4rem; text-align: center;
+    background: var(--black); position: relative; overflow: hidden;
+  }
+  .booking::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(201,168,76,0.08), transparent 70%);
+    pointer-events: none;
+  }
+  .booking h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 7vw, 6rem); margin-bottom: 1rem; line-height: 1; }
+  .booking p { font-size: 1rem; color: rgba(245,240,232,0.5); margin-bottom: 2.5rem; font-weight: 300; }
+  .phone-num { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: var(--gold); display: block; margin-bottom: 2rem; letter-spacing: 3px; }
+
+  /* FOOTER */
+  footer {
+    background: var(--mid); padding: 3rem 4rem;
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid rgba(201,168,76,0.15);
+  }
+  .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; color: var(--gold); letter-spacing: 3px; }
+  footer p { font-size: 0.75rem; color: rgba(245,240,232,0.3); }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-visual { height: 300px; }
+    .hero-text { padding: 5rem 1.5rem 3rem; }
+    .services { padding: 4rem 1.5rem; }
+    .services-grid { grid-template-columns: 1fr; }
+    .about { grid-template-columns: 1fr; padding: 4rem 1.5rem; gap: 3rem; }
+    .hours-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .hours { padding: 4rem 1.5rem; }
+    .booking { padding: 5rem 1.5rem; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Kings & Cuts</div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#hours">Hours</a></li>
+  </ul>
+  <a href="#booking" class="nav-cta">Book Now</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-eyebrow">Est. 2018 — Fort Wayne, Indiana</div>
+    <h1>Sharp<span>Cuts.<br>Real<br>Craft.</span></h1>
+    <p class="hero-sub">Premium cuts, fades, and grooming for men who take pride in how they look. Walk-ins welcome. Appointments respected.</p>
+    <div class="hero-buttons">
+      <a href="#booking" class="btn-primary">Book Appointment</a>
+      <a href="#services" class="btn-outline">View Services</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-visual-bg"></div>
+    <div class="barber-pole"><div class="pole-inner"></div></div>
+  </div>
+  <div class="hero-stat-bar">
+    <div class="stat"><span class="stat-num">12+</span><span class="stat-label">Years Experience</span></div>
+    <div class="stat"><span class="stat-num">2,400+</span><span class="stat-label">Happy Clients</span></div>
+    <div class="stat"><span class="stat-num">5★</span><span class="stat-label">Google Rating</span></div>
+    <div class="stat"><span class="stat-num">$25</span><span class="stat-label">Starting Price</span></div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="section-label">What We Offer</div>
+  <h2>Our Services</h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">✂️</div>
+      <div class="service-name">Classic Cut</div>
+      <p class="service-desc">Scissor or clipper cut, styled to your preference. Includes consultation and finish.</p>
+      <div class="service-price">$25</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🪒</div>
+      <div class="service-name">Fade & Taper</div>
+      <p class="service-desc">High, mid, or low fade with sharp lines. Our most requested cut.</p>
+      <div class="service-price">$30</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🧔</div>
+      <div class="service-name">Beard Trim</div>
+      <p class="service-desc">Shape, line-up, and condition. Add to any haircut or standalone service.</p>
+      <div class="service-price">$15</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">👑</div>
+      <div class="service-name">Kings Package</div>
+      <p class="service-desc">Full cut + beard + hot towel treatment. The complete experience.</p>
+      <div class="service-price">$55</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">👦</div>
+      <div class="service-name">Kids Cut</div>
+      <p class="service-desc">For the little ones, 12 and under. Patient, experienced stylists.</p>
+      <div class="service-price">$18</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🎯</div>
+      <div class="service-name">Line-Up Only</div>
+      <p class="service-desc">Clean up the edges between cuts. In and out in 15 minutes.</p>
+      <div class="service-price">$12</div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="about-visual">
+    <div class="about-visual-inner">
+      <div class="scissors-icon">✂️</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:4px;opacity:0.4;">KINGS & CUTS</div>
+    </div>
+    <div class="about-badge">
+      <span class="badge-num">12</span>
+      <span class="badge-text">Years in<br>Business</span>
+    </div>
+  </div>
+  <div class="about-text">
+    <div class="section-label">Our Story</div>
+    <h2>Fort Wayne's<br>Premier Shop</h2>
+    <p>Kings & Cuts was founded with one goal: give Fort Wayne men a barbershop that actually takes the craft seriously. No rushed cuts, no guessing games — just clean work from people who know what they're doing.</p>
+    <p>We've served the Northside community for over a decade, building relationships one cut at a time. Whether you're a first-timer or a regular, you get the same standard of excellence.</p>
+    <ul class="about-list">
+      <li>Licensed and insured master barbers</li>
+      <li>Clean, sanitized tools — every client, every time</li>
+      <li>Walk-ins always welcome, no wait with appointments</li>
+      <li>Free parking, wheelchair accessible</li>
+    </ul>
+    <a href="#booking" class="btn-primary">Book Your Cut</a>
+  </div>
+</section>
+
+<section class="hours" id="hours">
+  <div class="hours-inner">
+    <div>
+      <div class="hours-title">Hours &<br>Location</div>
+      <div class="hours-address">
+        3412 Coliseum Blvd N<br>
+        Fort Wayne, IN 46808<br><br>
+        📞 (260) 555-0182<br>
+        📧 kings@kingsandcuts.com
+      </div>
+    </div>
+    <div>
+      <table class="hours-table">
+        <tr><td>Monday</td><td>9:00 AM – 7:00 PM</td></tr>
+        <tr><td>Tuesday</td><td>9:00 AM – 7:00 PM</td></tr>
+        <tr><td>Wednesday</td><td>9:00 AM – 7:00 PM</td></tr>
+        <tr class="today"><td>Thursday ★</td><td>9:00 AM – 7:00 PM</td></tr>
+        <tr><td>Friday</td><td>9:00 AM – 8:00 PM</td></tr>
+        <tr><td>Saturday</td><td>8:00 AM – 6:00 PM</td></tr>
+        <tr><td>Sunday</td><td>10:00 AM – 4:00 PM</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="booking" id="booking">
+  <div class="section-label" style="justify-content:center;">Ready?</div>
+  <h2>Book Your<br><span style="color:var(--gold);">Appointment</span></h2>
+  <p>Call us, text us, or walk in. We'll get you taken care of.</p>
+  <span class="phone-num">(260) 555-0182</span>
+  <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+    <a href="#" class="btn-primary">Book Online</a>
+    <a href="#" class="btn-outline">Get Directions</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Kings & Cuts</div>
+  <p>© 2025 Kings & Cuts Barbershop. Fort Wayne, IN.</p>
+  <p style="font-size:0.7rem;opacity:0.4;">Demo site — designed by [Your Business Name]</p>
+</footer>
+
+</body>
+</html>

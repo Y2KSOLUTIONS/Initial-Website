@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Services | Y2K Solutions LLC",
   description:
-    "Web design, e-commerce, SEO, and ongoing maintenance for small and medium-sized businesses across the US.",
+    "Web design, SEO, and ongoing maintenance for small and medium-sized businesses across the US.",
 };
 
 const services = [
@@ -17,34 +17,27 @@ const services = [
   },
   {
     number: "02",
-    title: "E-Commerce Websites",
-    description:
-      "Ready to sell online? We build clean, trustworthy online stores that make buying easy and secure — whether you're selling 10 products or 10,000.",
-    features: ["Product management", "Secure checkout", "Inventory tracking", "Payment integrations"],
-  },
-  {
-    number: "03",
     title: "SEO & Performance",
     description:
       "A great website no one can find is a missed opportunity. We build with search engine optimization baked in from day one, so your customers can find you on Google.",
     features: ["On-page SEO", "Core Web Vitals optimization", "Local SEO", "Google Business setup"],
   },
   {
-    number: "04",
+    number: "03",
     title: "Maintenance & Support",
     description:
       "Websites aren't a set-it-and-forget-it deal. Our maintenance plans keep your site secure, updated, and running smoothly so you can focus on your business.",
     features: ["Security updates", "Content changes", "Uptime monitoring", "Monthly reports"],
   },
   {
-    number: "05",
+    number: "04",
     title: "Landing Pages",
     description:
       "Need a focused page for a campaign, product launch, or lead generation? We build high-converting landing pages that turn ad traffic into real results.",
     features: ["A/B test ready", "Fast deployment", "Lead capture forms", "Analytics integration"],
   },
   {
-    number: "06",
+    number: "05",
     title: "Website Redesigns",
     description:
       "Got an existing site that's embarrassing you? We'll modernize it — keeping what works and replacing what doesn't, with minimal disruption to your business.",
