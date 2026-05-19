@@ -5,6 +5,7 @@ import Ticker from "@/components/Ticker";
 import HowItWorks from "@/components/HowItWorks";
 import GlitchText from "@/components/GlitchText";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
+import Testimonials from "@/components/Testimonials";
 
 const services = [
   {
@@ -268,6 +269,19 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Divider */}
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="h-px bg-gradient-to-r from-transparent via-line-2 to-transparent" />
+      </div>
+
+      {/* ── Testimonials ── */}
+      <Testimonials />
+
+      {/* Divider */}
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="h-px bg-gradient-to-r from-transparent via-line-2 to-transparent" />
+      </div>
 
       {/* ── CTA ── */}
       <section className="py-28 px-6 bg-dark-2 border-t border-line">
