@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import ParticleCanvas from "@/components/ParticleCanvas";
 import HeroHeadline from "@/components/HeroHeadline";
 import Ticker from "@/components/Ticker";
@@ -179,6 +180,33 @@ export default function HomePage() {
               We exist to make sure that never happens to you.
             </span>
           </p>
+        </div>
+      </section>
+
+      {/* ── Who We Help ── */}
+      <section className="py-20 px-6 bg-dark-2 border-y border-line">
+        <div className="max-w-6xl mx-auto">
+          <p className="label mb-10 block text-center">Industries We Serve</p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { label: "Home Services", img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" },
+              { label: "Restaurants", img: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80" },
+              { label: "Professional Services", img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80" },
+              { label: "Healthcare", img: "https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=600&q=80" },
+            ].map(({ label, img }) => (
+              <div key={label} className="relative aspect-square rounded-xl overflow-hidden group">
+                <Image
+                  src={img}
+                  alt={label}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-dark/80 via-dark/20 to-transparent" />
+                <span className="absolute bottom-3 left-3 text-light text-sm font-bold">{label}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

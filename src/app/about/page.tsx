@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -74,7 +75,21 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="bg-dark-2 border border-line rounded-xl p-8">
+          <div className="space-y-6">
+            <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-line">
+              <Image
+                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80"
+                alt="Web design workspace"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-dark/60 to-transparent" />
+              <div className="absolute bottom-4 left-4 font-mono text-xs text-light-3">
+                — swap this with your own photo
+              </div>
+            </div>
+            <div className="bg-dark-2 border border-line rounded-xl p-8">
             <div className="font-mono text-xs text-light-2 mb-6 space-y-1.5">
               <p>
                 <span className="text-neon">›</span> year: 1999
@@ -100,6 +115,7 @@ export default function AboutPage() {
               We&apos;ll make that happen.&rdquo;
             </blockquote>
             <p className="text-neon text-sm mt-4 font-mono">— Y2K Solutions LLC_</p>
+          </div>
           </div>
         </div>
       </section>

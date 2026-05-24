@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import PortfolioSlideshow from "@/components/PortfolioSlideshow";
 
@@ -13,6 +14,7 @@ const projects = [
     number: "01",
     title: "Local HVAC Company",
     category: "Custom Website + SEO",
+    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
     description:
       "Redesigned a 10-year-old site for a family-owned HVAC business. New site loads 4x faster and ranks #1 for local search terms.",
     stats: [
@@ -25,6 +27,7 @@ const projects = [
     number: "02",
     title: "Restaurant Group",
     category: "Custom Website + SEO",
+    image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80",
     description:
       "Built a modern site for a multi-location restaurant group with online menus and reservation CTAs. Organic traffic up 3x.",
     stats: [
@@ -37,6 +40,7 @@ const projects = [
     number: "03",
     title: "Law Firm",
     category: "Professional Website",
+    image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&q=80",
     description:
       "Created a clean, authoritative online presence for a 3-attorney firm. Increased inquiry form submissions by 60%.",
     stats: [
@@ -49,6 +53,7 @@ const projects = [
     number: "04",
     title: "Landscaping Business",
     category: "Website + Landing Pages",
+    image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80",
     description:
       "New website plus targeted landing pages for Google Ads campaigns. Cost-per-lead dropped by 40%.",
     stats: [
@@ -61,6 +66,7 @@ const projects = [
     number: "05",
     title: "Independent Restaurant",
     category: "Website + Online Ordering",
+    image: "https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=800&q=80",
     description:
       "Modernized a restaurant's web presence with online ordering integration and a mobile-optimized menu.",
     stats: [
@@ -73,6 +79,7 @@ const projects = [
     number: "06",
     title: "Medical Practice",
     category: "HIPAA-Conscious Website",
+    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80",
     description:
       "Patient-focused design with secure contact forms, appointment scheduling integration, and full ADA compliance.",
     stats: [
@@ -109,6 +116,17 @@ export default function PortfolioPage() {
               key={p.title}
               className="bg-dark-2 border border-line rounded-xl overflow-hidden card-base"
             >
+              {/* Thumbnail */}
+              <div className="relative w-full aspect-video overflow-hidden">
+                <Image
+                  src={p.image}
+                  alt={p.title}
+                  fill
+                  className="object-cover transition-transform duration-500 hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-dark-2/60 to-transparent" />
+              </div>
               {/* Card header */}
               <div className="bg-dark-3 border-b border-line px-6 py-4 flex items-center justify-between">
                 <span className="font-mono text-light-3 text-xs">{p.number}</span>
