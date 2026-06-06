@@ -103,7 +103,7 @@ export default function ServicesPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-neon text-dark font-bold px-8 py-4 rounded-full hover:shadow-[0_0_28px_rgba(0,229,160,0.45)] hover:-translate-y-0.5 transition-all duration-200"
+            className="inline-block bg-neon text-dark font-bold px-8 py-4 rounded-full hover:shadow-[0_0_28px_rgba(37,99,235,0.35)] hover:-translate-y-0.5 transition-all duration-200"
           >
             Get a Free Consultation
           </Link>

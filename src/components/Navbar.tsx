@@ -39,7 +39,7 @@ export default function Navbar() {
           ))}
           <Link
             href="/contact"
-            className="bg-neon text-dark text-sm font-bold px-5 py-2 rounded-full hover:shadow-[0_0_20px_rgba(0,229,160,0.4)] transition-all duration-200"
+            className="bg-neon text-dark text-sm font-bold px-5 py-2 rounded-full hover:shadow-[0_0_20px_rgba(37,99,235,0.35)] transition-all duration-200"
           >
             Free Quote
           </Link>
@@ -80,7 +80,7 @@ export default function Navbar() {
           ))}
           <Link
             href="/contact"
-            className="bg-neon text-dark text-sm font-bold px-5 py-2.5 rounded-full text-center hover:shadow-[0_0_20px_rgba(0,229,160,0.4)] transition-all"
+            className="bg-neon text-dark text-sm font-bold px-5 py-2.5 rounded-full text-center hover:shadow-[0_0_20px_rgba(37,99,235,0.35)] transition-all"
             onClick={() => setOpen(false)}
           >
             Free Quote

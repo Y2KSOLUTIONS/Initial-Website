@@ -53,7 +53,7 @@ export default function HomePage() {
         <span
           aria-hidden
           className="absolute right-0 top-1/2 -translate-y-1/2 text-[22vw] font-bold leading-none select-none pointer-events-none font-display"
-          style={{ color: "rgba(0,229,160,0.025)", zIndex: 2 }}
+          style={{ color: "rgba(37,99,235,0.04)", zIndex: 2 }}
         >
           Y2K
         </span>
@@ -75,13 +75,13 @@ export default function HomePage() {
             <div className="anim anim-7 flex flex-col sm:flex-row gap-4">
               <Link
                 href="/contact"
-                className="bg-neon text-dark font-bold px-8 py-4 rounded-full text-base text-center hover:shadow-[0_0_32px_rgba(0,229,160,0.45)] hover:-translate-y-0.5 transition-all duration-200"
+                className="bg-neon text-dark font-bold px-8 py-4 rounded-full text-base text-center hover:shadow-[0_0_32px_rgba(37,99,235,0.35)] hover:-translate-y-0.5 transition-all duration-200"
               >
                 Get a Free Quote
               </Link>
               <Link
                 href="/portfolio"
-                className="border border-line-2 text-light px-8 py-4 rounded-full text-base font-medium text-center hover:border-neon hover:bg-neon/5 transition-all duration-200"
+                className="border border-line-2 text-light px-8 py-4 rounded-full text-base font-medium text-center hover:border-neon hover:bg-neon/10 transition-all duration-200"
               >
                 See Our Work →
               </Link>
@@ -104,8 +104,8 @@ export default function HomePage() {
                 <p>
                   <span className="text-neon">›</span> no website detected
                 </p>
-                <p className="text-yellow-400/80">⚠ WARNING: invisible online</p>
-                <p className="text-yellow-400/80">⚠ competitors are ranking</p>
+                <p className="text-amber-600">⚠ WARNING: invisible online</p>
+                <p className="text-amber-600">⚠ competitors are ranking</p>
                 <div className="h-px bg-line my-3" />
                 <p>
                   <span className="text-neon">›</span> initiating Y2K protocol...
@@ -202,7 +202,7 @@ export default function HomePage() {
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 768px) 50vw, 25vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark/80 via-dark/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                 <span className="absolute bottom-3 left-3 text-light text-sm font-bold">{label}</span>
               </div>
             ))}
@@ -326,7 +326,7 @@ export default function HomePage() {
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-neon text-dark font-bold px-10 py-4 rounded-full text-lg hover:shadow-[0_0_32px_rgba(0,229,160,0.45)] hover:-translate-y-0.5 transition-all duration-200"
+            className="inline-block bg-neon text-dark font-bold px-10 py-4 rounded-full text-lg hover:shadow-[0_0_32px_rgba(37,99,235,0.35)] hover:-translate-y-0.5 transition-all duration-200"
           >
             Start the Conversation
           </Link>

@@ -44,7 +44,7 @@ export default function Footer() {
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-neon text-dark text-sm font-bold px-5 py-2.5 rounded-full hover:shadow-[0_0_20px_rgba(0,229,160,0.4)] transition-all"
+            className="inline-block bg-neon text-dark text-sm font-bold px-5 py-2.5 rounded-full hover:shadow-[0_0_20px_rgba(37,99,235,0.35)] transition-all"
           >
             Get a Free Quote
           </Link>

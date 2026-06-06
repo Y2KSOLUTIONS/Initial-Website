@@ -125,7 +125,7 @@ export default function PortfolioPage() {
                   className="object-cover transition-transform duration-500 hover:scale-105"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark-2/60 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
               </div>
               {/* Card header */}
               <div className="bg-dark-3 border-b border-line px-6 py-4 flex items-center justify-between">
@@ -183,7 +183,7 @@ export default function PortfolioPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-neon text-dark font-bold px-8 py-4 rounded-full hover:shadow-[0_0_28px_rgba(0,229,160,0.45)] hover:-translate-y-0.5 transition-all duration-200"
+            className="inline-block bg-neon text-dark font-bold px-8 py-4 rounded-full hover:shadow-[0_0_28px_rgba(37,99,235,0.35)] hover:-translate-y-0.5 transition-all duration-200"
           >
             Start Your Project
           </Link>

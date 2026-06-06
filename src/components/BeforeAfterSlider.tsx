@@ -35,49 +35,49 @@ export default function BeforeAfterSlider() {
         onTouchStart={(e) => updateFromClientX(e.touches[0].clientX)}
       >
         {/* ── AFTER panel (Y2K design) ── */}
-        <div className="absolute inset-0" style={{ background: "#050D1A" }}>
+        <div className="absolute inset-0" style={{ background: "#FFFFFF" }}>
           <div className="absolute inset-0" style={{
-            backgroundImage: "radial-gradient(circle, #1A2E4A 1px, transparent 1px)",
+            backgroundImage: "radial-gradient(circle, #CBD5E1 1px, transparent 1px)",
             backgroundSize: "28px 28px",
-            opacity: 0.4,
+            opacity: 0.5,
           }} />
           {/* Navbar */}
-          <div className="absolute top-0 left-0 right-0 flex items-center justify-between px-5 py-2.5 border-b" style={{ borderColor: "#1A2E4A", background: "rgba(5,13,26,0.95)" }}>
-            <span style={{ color: "#00E5A0", fontFamily: "monospace", fontSize: "0.65rem" }}>&gt; Y2K Solutions LLC</span>
-            <div className="flex gap-4" style={{ color: "#7B9BB8", fontSize: "0.6rem" }}>
+          <div className="absolute top-0 left-0 right-0 flex items-center justify-between px-5 py-2.5 border-b" style={{ borderColor: "#E2E8F0", background: "rgba(255,255,255,0.95)" }}>
+            <span style={{ color: "#2563EB", fontFamily: "monospace", fontSize: "0.65rem", fontWeight: 700 }}>&gt; Y2K Solutions LLC</span>
+            <div className="flex gap-4" style={{ color: "#475569", fontSize: "0.6rem" }}>
               <span>Services</span><span>Portfolio</span><span>Contact</span>
             </div>
-            <div style={{ background: "#00E5A0", color: "#050D1A", fontSize: "0.58rem", padding: "3px 10px", borderRadius: "999px", fontWeight: 700 }}>
+            <div style={{ background: "#2563EB", color: "#FFFFFF", fontSize: "0.58rem", padding: "3px 10px", borderRadius: "999px", fontWeight: 700 }}>
               Free Quote
             </div>
           </div>
           {/* Hero */}
           <div className="absolute px-6" style={{ top: "52px" }}>
-            <div style={{ color: "#00E5A0", fontFamily: "monospace", fontSize: "0.5rem", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "10px", opacity: 0.8 }}>
+            <div style={{ color: "#2563EB", fontFamily: "monospace", fontSize: "0.5rem", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "10px", opacity: 0.8 }}>
               &gt; Web Design Nationwide
             </div>
-            <div style={{ color: "#E2EEF7", fontWeight: 700, fontSize: "clamp(1rem, 3vw, 1.6rem)", lineHeight: 1.2, marginBottom: "10px" }}>
+            <div style={{ color: "#0F172A", fontWeight: 700, fontSize: "clamp(1rem, 3vw, 1.6rem)", lineHeight: 1.2, marginBottom: "10px" }}>
               Your Business.<br />
-              <span style={{ color: "#00E5A0" }}>Online. Ranked. Growing.</span>
+              <span style={{ color: "#2563EB" }}>Online. Ranked. Growing.</span>
             </div>
-            <div style={{ color: "#7B9BB8", fontSize: "clamp(0.55rem, 1.2vw, 0.75rem)", marginBottom: "14px", maxWidth: "360px" }}>
+            <div style={{ color: "#475569", fontSize: "clamp(0.55rem, 1.2vw, 0.75rem)", marginBottom: "14px", maxWidth: "360px" }}>
               Fast, modern websites for small businesses across America. No jargon. No hidden fees.
             </div>
-            <div style={{ background: "#00E5A0", color: "#050D1A", fontSize: "0.62rem", padding: "6px 16px", borderRadius: "999px", fontWeight: 700, display: "inline-block" }}>
+            <div style={{ background: "#2563EB", color: "#FFFFFF", fontSize: "0.62rem", padding: "6px 16px", borderRadius: "999px", fontWeight: 700, display: "inline-block" }}>
               Get a Free Quote
             </div>
           </div>
           {/* Stats bar */}
-          <div className="absolute bottom-0 left-0 right-0 grid grid-cols-4 border-t" style={{ borderColor: "#1A2E4A", background: "#0A1628" }}>
-            {[["100%", "US-Based"], ["< 2wk", "Launch"], ["24/7", "Support"], ["$0", "Hidden Fees"]].map(([v, l]) => (
-              <div key={l} className="text-center py-2.5">
-                <div style={{ color: "#00E5A0", fontFamily: "monospace", fontWeight: 700, fontSize: "clamp(0.65rem, 1.5vw, 0.9rem)" }}>{v}</div>
-                <div style={{ color: "#3A5470", fontSize: "0.45rem", textTransform: "uppercase", letterSpacing: "0.1em" }}>{l}</div>
+          <div className="absolute bottom-0 left-0 right-0 grid grid-cols-4 border-t" style={{ borderColor: "#E2E8F0", background: "#F8FAFC" }}>
+            {[["100%", "US-Based"], ["< 2wk", "Launch"], ["24/7", "Support"], ["$0", "Hidden Fees"]].map(([v, l], i) => (
+              <div key={l} className="text-center py-2.5" style={{ borderLeft: i > 0 ? "1px solid #E2E8F0" : "none" }}>
+                <div style={{ color: "#2563EB", fontFamily: "monospace", fontWeight: 700, fontSize: "clamp(0.65rem, 1.5vw, 0.9rem)" }}>{v}</div>
+                <div style={{ color: "#94A3B8", fontSize: "0.45rem", textTransform: "uppercase", letterSpacing: "0.1em" }}>{l}</div>
               </div>
             ))}
           </div>
           {/* AFTER badge */}
-          <div className="absolute" style={{ bottom: "44px", right: "12px", background: "#00E5A0", color: "#050D1A", fontSize: "0.5rem", padding: "2px 8px", borderRadius: "4px", fontWeight: 700, fontFamily: "monospace", textTransform: "uppercase", letterSpacing: "0.1em" }}>
+          <div className="absolute" style={{ bottom: "44px", right: "12px", background: "#2563EB", color: "#FFFFFF", fontSize: "0.5rem", padding: "2px 8px", borderRadius: "4px", fontWeight: 700, fontFamily: "monospace", textTransform: "uppercase", letterSpacing: "0.1em" }}>
             After ✓
           </div>
         </div>
@@ -138,7 +138,7 @@ export default function BeforeAfterSlider() {
         {/* ── Divider ── */}
         <div
           className="absolute top-0 bottom-0 z-20"
-          style={{ left: `${position}%`, transform: "translateX(-50%)", width: "2px", background: "linear-gradient(to bottom, transparent 0%, #00E5A0 20%, #00E5A0 80%, transparent 100%)" }}
+          style={{ left: `${position}%`, transform: "translateX(-50%)", width: "2px", background: "linear-gradient(to bottom, transparent 0%, #2563EB 20%, #2563EB 80%, transparent 100%)" }}
           onMouseDown={() => { dragging.current = true; }}
         >
           <div
@@ -150,13 +150,13 @@ export default function BeforeAfterSlider() {
               width: "38px",
               height: "38px",
               borderRadius: "50%",
-              background: "#050D1A",
-              border: "2px solid #00E5A0",
+              background: "#FFFFFF",
+              border: "2px solid #2563EB",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              boxShadow: "0 0 20px rgba(0,229,160,0.5)",
-              color: "#00E5A0",
+              boxShadow: "0 0 20px rgba(37,99,235,0.4)",
+              color: "#2563EB",
               fontSize: "0.8rem",
               fontWeight: 700,
               cursor: "col-resize",

@@ -43,7 +43,7 @@ export default function PortfolioSlideshow() {
         </div>
 
         {/* Browser window */}
-        <div className="rounded-xl overflow-hidden border border-line shadow-[0_0_60px_rgba(0,229,160,0.06)]">
+        <div className="rounded-xl overflow-hidden border border-line shadow-[0_0_60px_rgba(37,99,235,0.08)]">
           {/* Browser chrome bar */}
           <div className="flex items-center gap-3 px-4 py-3 bg-dark-2 border-b border-line">
             <div className="flex gap-1.5 shrink-0">
@@ -108,7 +108,7 @@ export default function PortfolioSlideshow() {
                   className="h-2 rounded-full transition-all duration-300 cursor-pointer"
                   style={{
                     width: i === current ? "20px" : "8px",
-                    backgroundColor: i === current ? "#00E5A0" : "#1A2E4A",
+                    backgroundColor: i === current ? "#2563EB" : "#E2E8F0",
                   }}
                 />
               ))}

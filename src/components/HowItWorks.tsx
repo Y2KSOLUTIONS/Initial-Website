@@ -58,7 +58,7 @@ export default function HowItWorks() {
           }}
         >
           <div className="relative z-10 mb-6">
-            <div className="w-20 h-20 rounded-full border border-neon/40 bg-dark-2 flex items-center justify-center shadow-[0_0_20px_rgba(0,229,160,0.08)]">
+            <div className="w-20 h-20 rounded-full border border-neon/40 bg-dark-2 flex items-center justify-center shadow-[0_0_20px_rgba(37,99,235,0.12)]">
               <span className="font-mono text-2xl font-bold text-neon">{step.num}</span>
             </div>
           </div>

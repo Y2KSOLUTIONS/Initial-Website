@@ -10,7 +10,7 @@ interface Particle {
   r: number;
 }
 
-const NEON = "0, 229, 160";
+const NEON = "37, 99, 235";
 const COUNT = 70;
 const CONNECT_DIST = 140;
 const MOUSE_RADIUS = 180;

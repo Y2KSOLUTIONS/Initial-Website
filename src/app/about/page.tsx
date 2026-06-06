@@ -84,7 +84,7 @@ export default function AboutPage() {
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-dark/60 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
               <div className="absolute bottom-4 left-4 font-mono text-xs text-light-3">
                 — swap this with your own photo
               </div>
@@ -100,7 +100,7 @@ export default function AboutPage() {
               <p>
                 <span className="text-neon">›</span> prediction: digital collapse
               </p>
-              <p className="text-yellow-400/80">⚠ world.exe panicking...</p>
+              <p className="text-amber-600">⚠ world.exe panicking...</p>
               <div className="h-px bg-line my-3" />
               <p>
                 <span className="text-neon">›</span> year: 2000
@@ -153,7 +153,7 @@ export default function AboutPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-neon text-dark font-bold px-8 py-4 rounded-full hover:shadow-[0_0_28px_rgba(0,229,160,0.45)] hover:-translate-y-0.5 transition-all duration-200"
+            className="inline-block bg-neon text-dark font-bold px-8 py-4 rounded-full hover:shadow-[0_0_28px_rgba(37,99,235,0.35)] hover:-translate-y-0.5 transition-all duration-200"
           >
             Get in Touch
           </Link>
