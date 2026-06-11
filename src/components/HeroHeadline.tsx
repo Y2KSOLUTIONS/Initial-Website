@@ -3,10 +3,10 @@
 import { useEffect, useState } from "react";
 
 const LINES = [
-  { text: "The internet", cls: "text-4xl md:text-6xl lg:text-7xl text-light-2" },
-  { text: "outlived Y2K.", cls: "text-4xl md:text-6xl lg:text-7xl text-light" },
-  { text: "Your website should", cls: "text-4xl md:text-6xl lg:text-7xl text-light-2 mt-1" },
-  { text: "outlive the competition.", cls: "text-4xl md:text-6xl lg:text-7xl text-neon" },
+  { text: "Your next customer", cls: "text-4xl md:text-6xl lg:text-7xl text-light-2" },
+  { text: "is Googling right now.", cls: "text-4xl md:text-6xl lg:text-7xl text-light" },
+  { text: "Show up first.", cls: "text-4xl md:text-6xl lg:text-7xl text-light mt-1" },
+  { text: "Win the job.", cls: "text-4xl md:text-6xl lg:text-7xl text-neon" },
 ];
 
 const SPEED = 28;
