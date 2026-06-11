@@ -52,7 +52,7 @@ export default function AboutPage() {
 
       {/* Our Story */}
       <section className="py-24 px-6">
-        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-14 items-center">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-14 items-center">
           <div>
             <p className="label mb-4 block">Our Story</p>
             <h2 className="text-3xl md:text-4xl font-bold text-light mb-6">
@@ -122,7 +122,7 @@ export default function AboutPage() {
 
       {/* Values */}
       <section className="py-24 px-6 bg-dark-2 border-y border-line">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="mb-14">
             <p className="label mb-4 block">How We Work</p>
             <h2 className="text-4xl font-bold text-light">What we believe in</h2>

@@ -145,7 +145,7 @@ export default function HomePage() {
 
       {/* ── Stats bar ── */}
       <section className="bg-dark-2 border-y border-line py-8 px-6">
-        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           {stats.map((s) => (
             <div key={s.label}>
               <div className="text-3xl font-bold text-neon font-mono">{s.value}</div>
@@ -185,7 +185,7 @@ export default function HomePage() {
 
       {/* ── Who We Help ── */}
       <section className="py-20 px-6 bg-dark-2 border-y border-line">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="mb-10 flex items-end justify-between gap-6">
             <p className="label block">Industries We Serve</p>
             <span className="hidden md:block font-mono text-light-3 text-sm shrink-0">
@@ -242,14 +242,14 @@ export default function HomePage() {
       </section>
 
       {/* Divider */}
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         <div className="h-px bg-gradient-to-r from-transparent via-line-2 to-transparent" />
       </div>
 
       {/* ── Before / After ── */}
       <section className="py-28 px-6 relative overflow-hidden bg-dark section-dark">
         <div className="absolute inset-0 dot-grid opacity-25" />
-        <div className="relative max-w-6xl mx-auto">
+        <div className="relative max-w-7xl mx-auto">
           <div className="mb-12 text-center">
             <p className="label mb-4 block">The Transformation</p>
             <h2 className="text-4xl md:text-5xl font-bold text-light">
@@ -266,7 +266,7 @@ export default function HomePage() {
 
       {/* ── The Payoff / Google impact ── */}
       <section className="py-28 px-6">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="mb-14 text-center">
             <p className="label mb-4 block">The Payoff</p>
             <h2 className="text-4xl md:text-5xl font-bold text-light">
@@ -328,13 +328,13 @@ export default function HomePage() {
       </section>
 
       {/* Divider */}
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         <div className="h-px bg-gradient-to-r from-transparent via-line-2 to-transparent" />
       </div>
 
       {/* ── How It Works ── */}
       <section className="py-28 px-6">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="mb-16 text-center">
             <p className="label mb-4 block">The Process</p>
             <h2 className="text-4xl md:text-5xl font-bold text-light">
@@ -347,13 +347,13 @@ export default function HomePage() {
       </section>
 
       {/* Divider */}
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         <div className="h-px bg-gradient-to-r from-transparent via-line-2 to-transparent" />
       </div>
 
       {/* ── Services Preview ── */}
       <section className="py-28 px-6">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="mb-12 flex items-end justify-between gap-6">
             <div>
               <p className="label mb-4 block">What We Do</p>
@@ -419,7 +419,7 @@ export default function HomePage() {
       </section>
 
       {/* Divider */}
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         <div className="h-px bg-gradient-to-r from-transparent via-line-2 to-transparent" />
       </div>
 
@@ -427,7 +427,7 @@ export default function HomePage() {
       <Testimonials />
 
       {/* Divider */}
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         <div className="h-px bg-gradient-to-r from-transparent via-line-2 to-transparent" />
       </div>
 

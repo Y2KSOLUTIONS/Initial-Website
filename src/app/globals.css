@@ -151,6 +151,12 @@ h1, h2, h3, h4, h5, h6 {
   50% { opacity: 0; }
 }
 
+/* Gutter glyph drift (SideRails) */
+@keyframes rail-drift {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-16px); }
+}
+
 .anim {
   animation: fadeInUp 0.65s ease both;
 }
