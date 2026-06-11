@@ -1,6 +1,7 @@
 import Link from "next/link";
 import ParticleCanvas from "@/components/ParticleCanvas";
 import HeroHeadline from "@/components/HeroHeadline";
+import HeroStats from "@/components/HeroStats";
 import Ticker from "@/components/Ticker";
 import HowItWorks from "@/components/HowItWorks";
 import GlitchText from "@/components/GlitchText";
@@ -58,7 +59,7 @@ export default function HomePage() {
           Y2K
         </span>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 py-24 w-full grid lg:grid-cols-[1fr_320px] gap-16 items-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 py-24 w-full grid lg:grid-cols-[1fr_360px] gap-16 items-center">
           {/* Left: main content */}
           <div>
             <p className="label anim anim-1 mb-6 block">
@@ -88,57 +89,9 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Right: terminal status card */}
+          {/* Right: why-a-website stats card */}
           <div className="hidden lg:block anim anim-5">
-            <div className="bg-dark-2 border border-line rounded-xl overflow-hidden">
-              <div className="flex items-center gap-1.5 px-4 py-3 bg-dark-3 border-b border-line">
-                <span className="w-2.5 h-2.5 rounded-full bg-red-500/50" />
-                <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/50" />
-                <span className="w-2.5 h-2.5 rounded-full bg-neon/50" />
-                <span className="ml-3 font-mono text-light-3 text-xs">Y2K_STATUS.exe</span>
-              </div>
-              <div className="p-5 font-mono text-xs space-y-2 text-light-2">
-                <p>
-                  <span className="text-neon">›</span> scanning business health...
-                </p>
-                <p>
-                  <span className="text-neon">›</span> no website detected
-                </p>
-                <p className="text-amber-600">⚠ WARNING: invisible online</p>
-                <p className="text-amber-600">⚠ competitors are ranking</p>
-                <div className="h-px bg-line my-3" />
-                <p>
-                  <span className="text-neon">›</span> initiating Y2K protocol...
-                </p>
-                <div className="h-px bg-line my-3" />
-                <div className="space-y-2">
-                  <div className="flex justify-between">
-                    <span className="text-light-3">load time</span>
-                    <span className="text-neon">&lt; 1.0s ✓</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-light-3">seo score</span>
-                    <span className="text-neon">98/100 ✓</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-light-3">google rank</span>
-                    <span className="text-neon">#1 local ✓</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-light-3">uptime</span>
-                    <span className="text-neon">99.9% ✓</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-light-3">status</span>
-                    <span className="text-neon animate-pulse">● LIVE</span>
-                  </div>
-                </div>
-                <div className="pt-2">
-                  <span className="text-neon">_</span>
-                  <span className="inline-block w-2 h-3.5 bg-neon ml-0.5 align-middle cursor-blink" />
-                </div>
-              </div>
-            </div>
+            <HeroStats />
           </div>
         </div>
       </section>
