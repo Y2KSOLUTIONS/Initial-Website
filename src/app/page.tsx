@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import ParticleCanvas from "@/components/ParticleCanvas";
 import HeroHeadline from "@/components/HeroHeadline";
 import Ticker from "@/components/Ticker";
@@ -187,27 +186,58 @@ export default function HomePage() {
       {/* ── Who We Help ── */}
       <section className="py-20 px-6 bg-dark-2 border-y border-line">
         <div className="max-w-6xl mx-auto">
-          <p className="label mb-10 block text-center">Industries We Serve</p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="mb-10 flex items-end justify-between gap-6">
+            <p className="label block">Industries We Serve</p>
+            <span className="hidden md:block font-mono text-light-3 text-sm shrink-0">
+              ( 08 )
+            </span>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 border-t border-l border-line-2 bg-white">
             {[
-              { label: "Home Services", img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" },
-              { label: "Restaurants", img: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80" },
-              { label: "Professional Services", img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80" },
-              { label: "Healthcare", img: "https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=600&q=80" },
-            ].map(({ label, img }) => (
-              <div key={label} className="relative aspect-square rounded-xl overflow-hidden group">
-                <Image
-                  src={img}
-                  alt={label}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  sizes="(max-width: 768px) 50vw, 25vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-                <span className="absolute bottom-3 left-3 text-light text-sm font-bold">{label}</span>
+              { name: "Home Services", sub: "Plumbing · HVAC · Electrical" },
+              { name: "Restaurants", sub: "Menus · Ordering · Reservations" },
+              { name: "Professional Services", sub: "Law · Accounting · Consulting" },
+              { name: "Healthcare", sub: "Clinics · Dental · Therapy" },
+              { name: "Contractors", sub: "Builders · Remodels · Roofing" },
+              { name: "Real Estate", sub: "Agents · Brokers · Property Mgmt" },
+              { name: "Retail & Shops", sub: "Boutiques · Local Storefronts" },
+              { name: "Nonprofits", sub: "Churches · Charities · Community" },
+            ].map((ind, i) => (
+              <div
+                key={ind.name}
+                className="group relative border-b border-r border-line-2 p-6 md:p-7 transition-colors duration-300 hover:bg-[#0A1228]"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-[0.62rem] text-light-3 group-hover:text-[#60A5FA] transition-colors duration-300">
+                    /0{i + 1}
+                  </span>
+                  <span
+                    aria-hidden
+                    className="font-mono text-[0.62rem] text-neon opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
+                  >
+                    ●
+                  </span>
+                </div>
+                <div className="mt-10 md:mt-14">
+                  <div className="font-bold font-display text-light text-base md:text-lg leading-tight group-hover:text-white transition-colors duration-300">
+                    {ind.name}
+                  </div>
+                  <div className="mt-1.5 font-mono text-[0.58rem] uppercase tracking-[0.12em] text-light-3 group-hover:text-[#A5B4CD] transition-colors duration-300">
+                    {ind.sub}
+                  </div>
+                </div>
               </div>
             ))}
           </div>
+
+          <p className="mt-6 font-mono text-xs text-light-3">
+            <span className="text-neon">›</span> Don&apos;t see your industry? We build for it
+            anyway —{" "}
+            <Link href="/contact" className="text-neon hover:underline underline-offset-4">
+              ask us
+            </Link>
+          </p>
         </div>
       </section>
 
@@ -324,31 +354,56 @@ export default function HomePage() {
       {/* ── Services Preview ── */}
       <section className="py-28 px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="mb-14">
-            <p className="label mb-4 block">What We Do</p>
-            <h2 className="text-4xl md:text-5xl font-bold text-light">
-              Services built for{" "}
-              <span className="gradient-text">real businesses</span>
-            </h2>
+          <div className="mb-12 flex items-end justify-between gap-6">
+            <div>
+              <p className="label mb-4 block">What We Do</p>
+              <h2 className="text-4xl md:text-5xl font-bold text-light">
+                Services built for{" "}
+                <span className="gradient-text">real businesses</span>
+              </h2>
+            </div>
+            <span className="hidden md:block font-mono text-light-3 text-sm pb-2 shrink-0">
+              ( 0{services.length} )
+            </span>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {services.map((s) => (
-              <div
+          <div className="border-t border-line">
+            {services.map((s, i) => (
+              <Link
                 key={s.title}
-                className="bg-dark-2 border border-line rounded-xl p-7 card-accent"
+                href="/services"
+                className="group relative grid md:grid-cols-[3.5rem_1.15fr_1fr_3rem] gap-x-8 gap-y-4 items-start py-10 px-3 md:px-5 -mx-3 md:-mx-5 border-b border-line transition-colors duration-300"
               >
-                <h3 className="text-light font-bold text-xl mb-3">{s.title}</h3>
-                <p className="text-light-2 text-sm leading-relaxed mb-5">{s.description}</p>
-                <ul className="space-y-1.5">
-                  {s.features.map((f) => (
-                    <li key={f} className="flex items-center gap-2 text-xs text-light-2 font-mono">
-                      <span className="text-neon">›</span>
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                {/* hover wash */}
+                <span
+                  aria-hidden
+                  className="absolute inset-0 bg-gradient-to-r from-neon/[0.05] via-neon/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                />
+
+                <span className="relative font-mono text-sm pt-2 text-light-3 group-hover:text-neon transition-colors duration-300">
+                  /0{i + 1}
+                </span>
+
+                <div className="relative">
+                  <h3 className="text-light font-bold text-2xl md:text-[1.75rem] tracking-tight leading-snug transition-transform duration-300 ease-out group-hover:translate-x-2">
+                    {s.title}
+                  </h3>
+                  <p className="mt-3 font-mono text-[0.65rem] uppercase tracking-[0.14em] text-light-3 leading-relaxed">
+                    {s.features.join("  ·  ")}
+                  </p>
+                </div>
+
+                <p className="relative text-light-2 text-[0.95rem] leading-relaxed max-w-md md:pt-1.5">
+                  {s.description}
+                </p>
+
+                <span
+                  aria-hidden
+                  className="relative hidden md:flex justify-end pt-1 text-neon text-2xl leading-none opacity-0 -translate-x-3 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-out"
+                >
+                  →
+                </span>
+              </Link>
             ))}
           </div>
 
