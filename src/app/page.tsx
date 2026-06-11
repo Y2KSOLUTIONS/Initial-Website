@@ -6,6 +6,7 @@ import Ticker from "@/components/Ticker";
 import HowItWorks from "@/components/HowItWorks";
 import GlitchText from "@/components/GlitchText";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
+import GoogleImpact from "@/components/GoogleImpact";
 import Testimonials from "@/components/Testimonials";
 
 const services = [
@@ -46,14 +47,14 @@ export default function HomePage() {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-dark">
+      <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-dark section-dark">
         <div className="absolute inset-0 dot-grid opacity-50" />
         <ParticleCanvas />
         {/* Y2K watermark */}
         <span
           aria-hidden
           className="absolute right-0 top-1/2 -translate-y-1/2 text-[22vw] font-bold leading-none select-none pointer-events-none font-display"
-          style={{ color: "rgba(37,99,235,0.04)", zIndex: 2 }}
+          style={{ color: "rgba(96,165,250,0.07)", zIndex: 2 }}
         >
           Y2K
         </span>
@@ -75,7 +76,7 @@ export default function HomePage() {
             <div className="anim anim-7 flex flex-col sm:flex-row gap-4">
               <Link
                 href="/contact"
-                className="bg-neon text-dark font-bold px-8 py-4 rounded-full text-base text-center hover:shadow-[0_0_32px_rgba(37,99,235,0.35)] hover:-translate-y-0.5 transition-all duration-200"
+                className="bg-neon text-white font-bold px-8 py-4 rounded-full text-base text-center hover:shadow-[0_0_32px_rgba(37,99,235,0.35)] hover:-translate-y-0.5 transition-all duration-200"
               >
                 Get a Free Quote
               </Link>
@@ -216,8 +217,9 @@ export default function HomePage() {
       </div>
 
       {/* ── Before / After ── */}
-      <section className="py-28 px-6">
-        <div className="max-w-5xl mx-auto">
+      <section className="py-28 px-6 relative overflow-hidden bg-dark section-dark">
+        <div className="absolute inset-0 dot-grid opacity-25" />
+        <div className="relative max-w-6xl mx-auto">
           <div className="mb-12 text-center">
             <p className="label mb-4 block">The Transformation</p>
             <h2 className="text-4xl md:text-5xl font-bold text-light">
@@ -229,6 +231,69 @@ export default function HomePage() {
             </p>
           </div>
           <BeforeAfterSlider />
+        </div>
+      </section>
+
+      {/* ── The Payoff / Google impact ── */}
+      <section className="py-28 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="mb-14 text-center">
+            <p className="label mb-4 block">The Payoff</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-light">
+              What that means{" "}
+              <span className="gradient-text">for your business</span>
+            </h2>
+            <p className="text-light-2 mt-4 max-w-xl mx-auto text-base">
+              A website isn&apos;t decoration. It&apos;s the engine behind your Google
+              presence — and the difference between getting found and getting skipped.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Benefits */}
+            <div className="space-y-7">
+              {[
+                {
+                  title: "Get found first",
+                  body: "Google ranks businesses with fast, mobile-friendly websites higher in local search and the map pack. You climb. Competitors without one sit on page two.",
+                },
+                {
+                  title: "Turn searches into phone calls",
+                  body: "When someone taps your profile and lands on a real website, they call. Without one, they hit “back” and call the next business on the list.",
+                },
+                {
+                  title: "Look like the obvious choice",
+                  body: "Strong reviews plus a sharp, modern site builds trust before you ever pick up the phone. People hire businesses that look like they're winning.",
+                },
+                {
+                  title: "See exactly what it earns you",
+                  body: "Every call, click, and direction request gets tracked. You'll know precisely how many customers your website brings in — no guesswork.",
+                },
+              ].map((b, i) => (
+                <div key={b.title} className="flex gap-4">
+                  <div className="shrink-0 w-9 h-9 rounded-lg bg-neon/10 border border-neon/25 flex items-center justify-center font-mono text-neon text-xs font-bold">
+                    0{i + 1}
+                  </div>
+                  <div>
+                    <h3 className="text-light font-bold text-lg mb-1.5">{b.title}</h3>
+                    <p className="text-light-2 text-sm leading-relaxed">{b.body}</p>
+                  </div>
+                </div>
+              ))}
+
+              <div className="pt-2 pl-13">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 text-neon font-mono text-sm hover:gap-3 transition-all"
+                >
+                  <span className="text-light-3">›</span> Get found on Google
+                </Link>
+              </div>
+            </div>
+
+            {/* Google Business Profile graphic */}
+            <GoogleImpact />
+          </div>
         </div>
       </section>
 
@@ -312,7 +377,7 @@ export default function HomePage() {
       </div>
 
       {/* ── CTA ── */}
-      <section className="py-28 px-6 bg-dark-2 border-t border-line">
+      <section className="py-28 px-6 bg-dark-2 border-t border-line section-dark">
         <div className="max-w-3xl mx-auto text-center">
           <p className="label mb-6 block">Ready?</p>
           <h2 className="text-4xl md:text-5xl font-bold text-light mb-6">
@@ -326,7 +391,7 @@ export default function HomePage() {
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-neon text-dark font-bold px-10 py-4 rounded-full text-lg hover:shadow-[0_0_32px_rgba(37,99,235,0.35)] hover:-translate-y-0.5 transition-all duration-200"
+            className="inline-block bg-neon text-white font-bold px-10 py-4 rounded-full text-lg hover:shadow-[0_0_32px_rgba(37,99,235,0.35)] hover:-translate-y-0.5 transition-all duration-200"
           >
             Start the Conversation
           </Link>

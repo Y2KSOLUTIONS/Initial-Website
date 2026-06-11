@@ -20,6 +20,26 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Dark section scope — remaps the theme tokens so token-based utilities
+   (bg-dark, text-light, border-line, …) flip to deep navy inside it */
+.section-dark {
+  --color-dark: #0A1228;
+  --color-dark-2: #0E1834;
+  --color-dark-3: #142048;
+  --color-line: #1E2A4D;
+  --color-line-2: #2B3C6B;
+  --color-neon: #3B82F6;
+  --color-light: #F1F5F9;
+  --color-light-2: #A5B4CD;
+  --color-light-3: #7C8DB0;
+}
+.section-dark .dot-grid {
+  background-image: radial-gradient(circle, rgba(148, 163, 184, 0.3) 1px, transparent 1px);
+}
+.section-dark .label {
+  color: #60A5FA;
+}
+
 body {
   background-color: #FFFFFF;
   color: #0F172A;

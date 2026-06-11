@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-dark-2 border-t border-line">
+    <footer className="bg-dark-2 border-t border-line section-dark">
       <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
         <div>
           <div className="flex items-center gap-1.5 mb-3">
@@ -44,7 +44,7 @@ export default function Footer() {
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-neon text-dark text-sm font-bold px-5 py-2.5 rounded-full hover:shadow-[0_0_20px_rgba(37,99,235,0.35)] transition-all"
+            className="inline-block bg-neon text-white text-sm font-bold px-5 py-2.5 rounded-full hover:shadow-[0_0_20px_rgba(37,99,235,0.35)] transition-all"
           >
             Get a Free Quote
           </Link>
